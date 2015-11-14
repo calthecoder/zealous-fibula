@@ -33,7 +33,7 @@ class Rock(Weapon):
 						description="A fist-sized rock, suitable for bludgeoning.",
 						value=0,
 						damage=5,
-						pview='a usless rock')
+						pview='a usless rock in the corner of the room.')
 
 
 class Dagger(Weapon):
@@ -44,7 +44,7 @@ class Dagger(Weapon):
 						description="A small dagger. Somewhat more dangerous than a rock.",
 						value=10,
 						damage=10,
-						pview='a sharp, rusty dagger')
+						pview='a sharp, rusty dagger lying at your feet.')
 		
 class Sword(Weapon):
 	def __init__(self,x,y):
