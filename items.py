@@ -19,6 +19,7 @@ class Weapon(Item):
 	def __init__(self, name, description, value, damage, pview, dex): #dextrous = how many time it can be swung in a ten second battle
 		
 		self.damage = damage
+		self.dex = dex
 		super().__init__(name, description, value, pview)
 	"""
 	def __str__(self):

@@ -6,6 +6,7 @@ Beta 0.1.2 - Renamed namelist to enemylist and added itemlist
 Beta 0.2.1 - Added items to pick up
 Beta 0.2.2 - Greatly shortened code
 Beta 0.2.3 - Added 'dex' variable in enemies.py - read docstring where defined
+Beta 0.2.4 - Programmed 'dex' to be multiplied by 'damage' to give a final damage. Needed to change Enemy.act() and Enemy.attack()
 """
 import player, sys
 #from world import Tile
@@ -48,6 +49,7 @@ grid = [
 ]
 x,y=0,0
 
+me.hp = 50
 def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
@@ -104,9 +106,10 @@ while True:
 	else:
 		print('Huh?')
 	
+	
 	############
-	if me.isAlive() == False:
-		sys.exit()
+	if me.hp<=0:
+		break
 	
 	############
 	
@@ -115,7 +118,7 @@ while True:
 		break
 		
 	if grid[y][x].name in enemylist:#!= 'bspace':
-		me.hp = atthandle(grid,x,y,me.hp)
+		me.hp = atthandle(grid,x,y,me)
 	elif grid[y][x].name in itemlist:
 		inp = input(' Pick up? (Y/n) ')
 		if inp == 'Y' or inp == 'y':

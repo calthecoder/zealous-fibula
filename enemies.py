@@ -1,4 +1,5 @@
 import random, sys
+from time import sleep
 
 enemylist = ['Goblin', 'Ogre', 'Giant Spider', 'Dragon']
 
@@ -17,26 +18,29 @@ class Enemy:
         self.description = description
         self.pview = pview
     
-    def act(self, php):
+    def act(self, p_obj):
         i = random.randint(1,3)
-        ret = php # to return
+        ret = p_obj # to return
         if i != 3:
             print("\nIt sees you!\n")
             return self.attack(ret) #needs to be here. if 'return' is omitted, it returns None.
         else:
-            print("The "+self.name+" does not see you.")
+            print("\nThe "+self.name+" does not see you.")
             m = input('Attack or move on? (Q, M) ')
             if m == 'q' or m == 'Q':
                 return self.attack(ret)
             else:
-                return ret
+                return ret.hp #needs to be ret.hp, not just ret. See changelog, 0.2.4
         
-    def attack(self, php):
-        ret = php
-        if self.hp>ret:
+    def attack(self, p_obj):
+        ret = p_obj.hp
+        #BATTLE TIME!! for 10 secs
+        print("Battle starting...\n")
+        sleep(10)
+        if self.hp>p_obj.weapon.dex*p_obj.weapon.damage:
                 print("*****************The "+self.name+" attacks you!*****************\n*****************He wins!*****************\n\n")
                 ret = 0
-        elif self.hp <=ret:
+        elif self.hp <=p_obj.weapon.dex*p_obj.weapon.damage:
                 print("*****************The "+self.name+" attacks you!*****************\n*****************He loses!*****************\n\n")
                 #include a function to turn the enemy into a bspace that says something dead is on the floor
                 ret -= (self.hp/3)
