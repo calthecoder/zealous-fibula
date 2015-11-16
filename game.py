@@ -5,6 +5,7 @@ Beta 0.1.1 - Renamed self.sees() to self.act(); added a passive function self.ac
 Beta 0.1.2 - Renamed namelist to enemylist and added itemlist
 Beta 0.2.1 - Added items to pick up
 Beta 0.2.2 - Greatly shortened code
+Beta 0.2.3 - Added 'dex' variable in enemies.py - read docstring where defined
 """
 import player, sys
 #from world import Tile

@@ -4,7 +4,7 @@ Beta 0.1.0 - Fixed Issue 0.0.9. Working but missing a few things
 Beta 0.1.1 - Renamed self.sees() to self.act(); added a passive function self.act() to Item
 Beta 0.1.2 - Renamed namelist to enemylist and added itemlist
 Beta 0.2.1 - Added items to pick up
-
+Beta 0.2.2 - Greatly shortened code
 """
 import player, sys
 #from world import Tile
@@ -58,15 +58,7 @@ while True:
 	if i == 'w' or i == 'W':
 		y+=1
 		try:
-			print('You walk forward and see '+grid[y][x].pview, end='')
-			if grid[y][x].name in enemylist:#!= 'bspace':
-				me.hp = atthandle(grid,x,y,me.hp)
-			elif grid[y][x].name in itemlist:
-				inp = input(' Pick up? (Y/n) ')
-				if inp == 'Y' or inp == 'y':
-					me.invent.append(grid[y][x].name)
-					grid[y][x] = bspace5(x,y)
-					print('Item added to inventory')
+			print('You walk forward and see '+grid[y][x].pview, end='')			
 			# add if statement here to append to me.invent if items are here 
 			# You see..."pick up? (Y/n) 
 		except:
@@ -76,15 +68,7 @@ while True:
 		y-=1
 		try:
 			if y>=0:
-				print('You take a few steps backward and turn around. You see '+grid[y][x].pview, end='')
-				if grid[y][x].name in enemylist:
-					me.hp = atthandle(grid,x,y,me.hp)
-				elif grid[y][x].name in itemlist:
-					inp = input(' Pick up? (Y/n) ')
-					if inp == 'Y' or inp == 'y':
-						me.invent.append(grid[y][x].name)
-						grid[y][x] = bspace5(x,y)
-						print('Item added to inventory')
+				print('You take a few steps backward and turn around. You see '+grid[y][x].pview, end='')				
 			else:
 				y+=1
 				print("Bonk! You can't go that way!")
@@ -94,15 +78,7 @@ while True:
 	elif i == 'd' or i == 'D':
 		x+=1
 		try:
-			print('You walk to the rightmost room and see '+grid[y][x].pview, end='')
-			if grid[y][x].name in enemylist:
-				me.hp = atthandle(grid,x,y,me.hp)
-			elif grid[y][x].name in itemlist:
-				inp = input(' Pick up? (Y/n) ')
-				if inp == 'Y' or inp == 'y':
-					me.invent.append(grid[y][x].name)
-					grid[y][x] = bspace5(x,y)
-					print('Item added to inventory')
+			print('You walk to the rightmost room and see '+grid[y][x].pview, end='')			
 		except:
 			x-=1
 			print("Bonk! You can't go that way.")
@@ -110,15 +86,7 @@ while True:
 		x-=1
 		try:
 			if x>=0:
-				print('You turn around and walk to the left. In front of you, you see '+grid[y][x].pview, end='')
-				if grid[y][x].name in enemylist:
-					me.hp = atthandle(grid,x,y,me.hp)
-				elif grid[y][x].name in itemlist:
-					inp = input(' Pick up ?(Y/n) ')
-					if inp == 'Y' or inp == 'y':
-						me.invent.append(grid[y][x].name)
-						grid[y][x] = bspace5(x,y)
-						print('Item added to inventory')
+				print('You turn around and walk to the left. In front of you, you see '+grid[y][x].pview, end='')				
 			else:
 				x+=1
 				print("Bonk! You can't go that way.")				
@@ -144,4 +112,13 @@ while True:
 	if x == 4 and y == 11:
 		print("\n\n\n\n\n\n\n******************You Win!!!!!!!****************\n\n\n\n\n\n\n\n")
 		break
+		
+	if grid[y][x].name in enemylist:#!= 'bspace':
+		me.hp = atthandle(grid,x,y,me.hp)
+	elif grid[y][x].name in itemlist:
+		inp = input(' Pick up? (Y/n) ')
+		if inp == 'Y' or inp == 'y':
+			me.invent.append(grid[y][x].name)
+			grid[y][x] = bspace5(x,y)
+			print('Item added to inventory')
 		
