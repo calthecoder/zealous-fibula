@@ -32,7 +32,7 @@ class Rock(Weapon):
 		super().__init__(name="Rock",
 						description="A fist-sized rock, suitable for bludgeoning.",
 						value=0,
-						damage=5,
+						damage=15,
 						pview='a usless rock in the corner of the room.')
 
 
@@ -42,8 +42,8 @@ class Dagger(Weapon):
 		self.y = y
 		super().__init__(name="Dagger",
 						description="A small dagger. Somewhat more dangerous than a rock.",
-						value=10,
-						damage=10,
+						value=20,
+						damage=35,
 						pview='a sharp, rusty dagger lying at your feet.')
 		
 class Sword(Weapon):
