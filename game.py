@@ -7,13 +7,14 @@ Beta 0.2.1 - Added items to pick up
 Beta 0.2.2 - Greatly shortened code
 Beta 0.2.3 - Added 'dex' variable in enemies.py - read docstring where defined
 Beta 0.2.4 - Programmed 'dex' to be multiplied by 'damage' to give a final damage. Needed to change Enemy.act() and Enemy.attack()
+Beta 0.2.5 - Fixed an assignment error
 """
 import player, sys
 #from world import Tile
 from enemies import *
 from items import *
 
-me=player.Player()
+me=player.Player(0,0)
 
 print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
 
@@ -47,54 +48,51 @@ grid = [
 	['','','',bspace(11,3),Gold(50,11,4)]
 	
 ]
-x,y=0,0
 
-me.hp = 50
 def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
 
-
-
 while True:
 	i = input('\nAction: ')
 	if i == 'w' or i == 'W':
-		y+=1
+		me.y+=1
 		try:
-			print('You walk forward and see '+grid[y][x].pview, end='')			
+			print('You walk forward and see '+grid[me.y][me.x].pview, end='')			
 			# add if statement here to append to me.invent if items are here 
 			# You see..."pick up? (Y/n) 
 		except:
-			y-=1
+			me.y-=1
 			print("Bonk! You can't go that way.")
 	elif i == 's' or i == 'S':
-		y-=1
+		me.y-=1
 		try:
-			if y>=0:
-				print('You take a few steps backward and turn around. You see '+grid[y][x].pview, end='')				
+			if me.y>=0:
+				print('You take a few steps backward and turn around. You see '+grid[me.y][me.x].pview, end='')				
 			else:
-				y+=1
+				me.y+=1
 				print("Bonk! You can't go that way!")
 		except:
-			y+=1
+			me.y+=1
 			print("Bonk! You can't go that way.")
 	elif i == 'd' or i == 'D':
-		x+=1
+		me.x+=1
+		
 		try:
-			print('You walk to the rightmost room and see '+grid[y][x].pview, end='')			
+			print('You walk to the rightmost room and see '+grid[me.y][me.x].pview, end='')			
 		except:
-			x-=1
+			me.x-=1
 			print("Bonk! You can't go that way.")
 	elif i == 'a' or i == 'A':
-		x-=1
+		me.x-=1
 		try:
-			if x>=0:
-				print('You turn around and walk to the left. In front of you, you see '+grid[y][x].pview, end='')				
+			if me.x>=0:
+				print('You turn around and walk to the left. In front of you, you see '+grid[me.y][me.x].pview, end='')				
 			else:
-				x+=1
+				me.x+=1
 				print("Bonk! You can't go that way.")				
 		except:
-			x+=1
+			me.x+=1
 			print("Bonk! You can't go that way.")
 	############ 
 	elif i == 'hp' or i == 'HP':
@@ -113,16 +111,15 @@ while True:
 	
 	############
 	
-	if x == 4 and y == 11:
+	if me.x == 4 and y == 11:
 		print("\n\n\n\n\n\n\n******************You Win!!!!!!!****************\n\n\n\n\n\n\n\n")
 		break
 		
-	if grid[y][x].name in enemylist:#!= 'bspace':
-		me.hp = atthandle(grid,x,y,me)
-	elif grid[y][x].name in itemlist:
+	if grid[me.y][me.x].name in enemylist:#!= 'bspace':		
+		me.hp = atthandle(grid,me.x,me.y,me)		
+	elif grid[me.y][me.x].name in itemlist:
 		inp = input(' Pick up? (Y/n) ')
 		if inp == 'Y' or inp == 'y':
-			me.invent.append(grid[y][x].name)
-			grid[y][x] = bspace5(x,y)
+			me.invent.append(grid[me.y][me.x].name)
+			grid[me.y][me.x] = bspace5(me.x,me.y)
 			print('Item added to inventory')
-		

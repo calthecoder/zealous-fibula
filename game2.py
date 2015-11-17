@@ -5,13 +5,15 @@ Beta 0.1.1 - Renamed self.sees() to self.act(); added a passive function self.ac
 Beta 0.1.2 - Renamed namelist to enemylist and added itemlist
 Beta 0.2.1 - Added items to pick up
 Beta 0.2.2 - Greatly shortened code
+Beta 0.2.3 - Added 'dex' variable in enemies.py - read docstring where defined
+Beta 0.2.4 - Programmed 'dex' to be multiplied by 'damage' to give a final damage. Needed to change Enemy.act() and Enemy.attack()
 """
 import player, sys
 #from world import Tile
 from enemies import *
 from items import *
 
-me=player.Player()
+me=player.Player(0,0)
 
 print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
 
@@ -45,7 +47,6 @@ grid = [
 	['','','',bspace(11,3),Gold(50,11,4)]
 	
 ]
-x,y=0,0
 
 def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
@@ -54,6 +55,7 @@ def atthandle(l,x,y,playhp):
 
 
 while True:
+	x,y=me.x,me.y
 	i = input('\nAction: ')
 	if i == 'w' or i == 'W':
 		y+=1
@@ -103,9 +105,10 @@ while True:
 	else:
 		print('Huh?')
 	
+	
 	############
-	if me.isAlive() == False:
-		sys.exit()
+	if me.hp<=0:
+		break
 	
 	############
 	
@@ -114,7 +117,7 @@ while True:
 		break
 		
 	if grid[y][x].name in enemylist:#!= 'bspace':
-		me.hp = atthandle(grid,x,y,me.hp)
+		me.hp = atthandle(grid,x,y,me)
 	elif grid[y][x].name in itemlist:
 		inp = input(' Pick up? (Y/n) ')
 		if inp == 'Y' or inp == 'y':
