@@ -5,7 +5,7 @@ class Player:
 		self.x = x
 		self.y = y
 		self.name = ''
-		self.hp = 50
+		self.hp = 100
 		self.weapon = items.Dagger(0,0) #(0,0) placeholders
 		self.invent = []
 

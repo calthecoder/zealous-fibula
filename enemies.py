@@ -56,7 +56,7 @@ class Enemy:
 class Goblin(Enemy):
     def __init__(self, x, y):
         super().__init__(name='Goblin',
-                         hp=20,
+                         hp=60,
                          description='A normal evil minion which does the general evil bidding of its master.',
                          pview='a hunched over figure with an evil smirk on its face.')
         self.x = x
@@ -65,7 +65,7 @@ class Goblin(Enemy):
 class Ogre(Enemy):
     def __init__(self, x, y):
         super().__init__(name='Ogre',
-                         hp=30,
+                         hp=85,
                          description='A fairly stupid bloke, all it does is smash anything that moves.',
                          pview='a giant, stupid, upright animal.')
         self.x = x
@@ -74,7 +74,7 @@ class Ogre(Enemy):
 class GiantSpider(Enemy):
     def __init__(self, x, y):
         super().__init__(name='Giant Spider',
-                         hp=60,
+                         hp=125,
                          description='This extremely dangerous beast will split you in half and then suck out your organs.',
                          pview='a three meter tall spider. Venom drips from its fangs and splatters on the ground.')
         self.x = x
@@ -83,7 +83,7 @@ class GiantSpider(Enemy):
 class Dragon(Enemy):
     def __init__(self, x, y):
         super().__init__(name='Dragon',
-                         hp=300,
+                         hp=500,
                          description='You definetely do not want to cross paths with this dude!!',
                          pview='a huge, flying, firebreathing menace.') 
         self.x = x

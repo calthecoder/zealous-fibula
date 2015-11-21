@@ -12,6 +12,7 @@ Beta 0.3.1 - Nicely formatted output for inventory
 Beta 0.3.2 - Moved the main loop into Adventure1(); allows expansion
 Beta 0.3.3 - Added startScreen() function
 Beta 0.3.4 - 'Quit' now works to exit
+Beta 0.3.5 - Lowered difference of item.damage*item.dex and enemy.hp
 """
 import player, sys
 from enemies import *
