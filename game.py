@@ -8,6 +8,7 @@ Beta 0.2.2 - Greatly shortened code
 Beta 0.2.3 - Added 'dex' variable in enemies.py - read docstring where defined
 Beta 0.2.4 - Programmed 'dex' to be multiplied by 'damage' to give a final damage. Needed to change Enemy.act() and Enemy.attack()
 Beta 0.2.5 - Fixed an assignment error
+Beta 0.3.1 - Nicely formatted output for inventory
 """
 import player, sys
 #from world import Tile
@@ -31,6 +32,7 @@ Keylist:
 	wa = wallet **
 	h = help
 	hp = health
+	^C = quit
 """
 
 grid = [
@@ -100,7 +102,7 @@ while True:
 	elif i == 'h' or i == 'H':
 		print(helplist)
 	elif i == 'i' or i == 'I':
-		print(me.invent)
+		me.printInvent()
 	else:
 		print('Huh?')
 	
@@ -120,6 +122,6 @@ while True:
 	elif grid[me.y][me.x].name in itemlist:
 		inp = input(' Pick up? (Y/n) ')
 		if inp == 'Y' or inp == 'y':
-			me.invent.append(grid[me.y][me.x].name)
+			me.invent.append(grid[me.y][me.x])
 			grid[me.y][me.x] = bspace5(me.x,me.y)
 			print('Item added to inventory')
