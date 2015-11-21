@@ -11,6 +11,7 @@ Beta 0.2.5 - Fixed an assignment error
 Beta 0.3.1 - Nicely formatted output for inventory
 Beta 0.3.2 - Moved the main loop into Adventure1(); allows expansion
 Beta 0.3.3 - Added startScreen() function
+Beta 0.3.4 - 'Quit' now works to exit
 """
 import player, sys
 from enemies import *
@@ -29,7 +30,7 @@ Keylist:
 	i = inventory
 	h = help
 	hp = health
-	^C = quit
+	quit = quit
 """
 
 grid = [
@@ -100,15 +101,13 @@ def Adventure1():
 			print(helplist)
 		elif i == 'i' or i == 'I':
 			me.printInvent()
+		elif i == 'quit':
+			sys.exit()
 		else:
 			print('Huh?')
-
-
 		############
 		if me.hp<=0:
 			break
-
-		############
 
 		if me.x == 4 and y == 11:
 			print("\n\n\n\n\n\n\n******************You Win!!!!!!!****************\n\n\n\n\n\n\n\n")
