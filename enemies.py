@@ -36,7 +36,7 @@ class Enemy:
         ret = p_obj.hp
         #BATTLE TIME!! for 10 secs
         print("Battle starting...\n")
-        sleep(10)
+        sleep(5)
         if self.hp>p_obj.weapon.dex*p_obj.weapon.damage:
                 print("*****************The "+self.name+" attacks you!*****************\n*****************He wins!*****************\n\n")
                 ret = 0
