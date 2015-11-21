@@ -10,18 +10,15 @@ Beta 0.2.4 - Programmed 'dex' to be multiplied by 'damage' to give a final damag
 Beta 0.2.5 - Fixed an assignment error
 Beta 0.3.1 - Nicely formatted output for inventory
 Beta 0.3.2 - Moved the main loop into Adventure1(); allows expansion
+Beta 0.3.3 - Added startScreen() function
 """
 import player, sys
-#from world import Tile
 from enemies import *
 from items import *
 
 me=player.Player(0,0)
 
-print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
-
 helplist="""
-**  = not added yet
 
 Keylist:
 	w = forward
@@ -29,8 +26,7 @@ Keylist:
 	d = right
 	s = backward
 	q = attack
-	i = inventory  **
-	wa = wallet **
+	i = inventory
 	h = help
 	hp = health
 	^C = quit
@@ -57,14 +53,13 @@ def atthandle(l,x,y,playhp):
 	return ret
 
 def Adventure1():
+	print('In the Caverns has been started.\n')
 	while True:
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
 			me.y+=1
 			try:
 				print('You walk forward and see '+grid[me.y][me.x].pview, end='')			
-				# add if statement here to append to me.invent if items are here 
-				# You see..."pick up? (Y/n) 
 			except:
 				me.y-=1
 				print("Bonk! You can't go that way.")
@@ -128,4 +123,11 @@ def Adventure1():
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
 
-Adventure1()
+def startScreen():
+	print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
+	print('Available adventures:\n	1) In the Caverns')
+	pick = input('Which adventure? Type # here: ')
+	if pick == '1':
+		Adventure1()
+		
+startScreen()
