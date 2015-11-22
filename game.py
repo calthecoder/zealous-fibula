@@ -16,6 +16,7 @@ Beta 0.3.5 - Lowered difference of item.damage*item.dex and enemy.hp
 Beta 0.3.6 - Lowered battle time to 5 seconds
 Beta 0.3.7 - Moved main loop into keyHandle(grid); avoids repition
 Beta 0.3.8 - Made new maze option, grid2
+Beta 0.3.9 - Added 'win spot' x and y vars
 """
 import player, sys
 from enemies import *
@@ -68,11 +69,16 @@ grid2 = [
 	
 ]
 
+win_statement = """
+#*******************#
+#******YOU WIN******#
+#*******************#
+"""
 def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
 
-def keyHandle(grid):
+def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
@@ -126,7 +132,8 @@ def keyHandle(grid):
 		############
 		if me.hp<=0:
 			break
-
+		if me.x == pasx and me.y == pasy:
+			print(win_statement)
 		if grid[me.y][me.x].name in enemylist:#!= 'bspace':		
 			me.hp = atthandle(grid,me.x,me.y,me)		
 		elif grid[me.y][me.x].name in itemlist:
@@ -138,10 +145,10 @@ def keyHandle(grid):
 
 def Adventure1():
 	print('In the Caverns has been started.\n')
-	keyHandle(grid1)
+	keyHandle(grid1,11,4)
 def Adventure2():
 	print('A realllly hard maze has been started.\n')
-	keyHandle(grid2)
+	keyHandle(grid2,2,6)
 def startScreen():
 	print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
 	print('Available adventures:\n	1) In the Caverns\n	2) A realllly hard maze')
