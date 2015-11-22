@@ -14,6 +14,7 @@ Beta 0.3.3 - Added startScreen() function
 Beta 0.3.4 - 'Quit' now works to exit
 Beta 0.3.5 - Lowered difference of item.damage*item.dex and enemy.hp
 Beta 0.3.6 - Lowered battle time to 5 seconds
+Beta 0.3.7 - Moved main loop into keyHandle(grid); avoids repition
 """
 import player, sys
 from enemies import *
@@ -35,7 +36,7 @@ Keylist:
 	quit = quit
 """
 
-grid = [
+grid1 = [
 	[bspace(0,0),Goblin(0,1),bspace(0,2)],
 	[Dragon(1,0),bspace2(1,1),Gold(21,1,2)],
 	[GiantSpider(2,0),Ogre(2,1),bspace4(2,2)],
@@ -55,8 +56,7 @@ def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
 
-def Adventure1():
-	print('In the Caverns has been started.\n')
+def keyHandle(grid):
 	while True:
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
@@ -123,6 +123,10 @@ def Adventure1():
 				me.invent.append(grid[me.y][me.x])
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
+
+def Adventure1():
+	print('In the Caverns has been started.\n')
+	keyHandle(grid1)
 
 def startScreen():
 	print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')

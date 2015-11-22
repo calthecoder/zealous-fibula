@@ -40,6 +40,7 @@ class Enemy:
         if self.hp>p_obj.weapon.dex*p_obj.weapon.damage:
                 print("*****************The "+self.name+" attacks you!*****************\n*****************He wins!*****************\n\n")
                 ret = 0
+                sys.exit()
         elif self.hp <=p_obj.weapon.dex*p_obj.weapon.damage:
                 print("*****************The "+self.name+" attacks you!*****************\n*****************He loses!*****************\n\n")
                 #include a function to turn the enemy into a bspace that says something dead is on the floor
