@@ -15,6 +15,7 @@ Beta 0.3.4 - 'Quit' now works to exit
 Beta 0.3.5 - Lowered difference of item.damage*item.dex and enemy.hp
 Beta 0.3.6 - Lowered battle time to 5 seconds
 Beta 0.3.7 - Moved main loop into keyHandle(grid); avoids repition
+Beta 0.3.8 - Made new maze option, grid2
 """
 import player, sys
 from enemies import *
@@ -43,6 +44,21 @@ grid1 = [
 	['',bspace(3,1),''],
 	['',bspace2(4,1),''],
 	[bspace(5,0),bspace4(5,1),''],
+	[bspace3(6,0),'',''],
+	[bspace2(7,0),bspace(7,1),''],
+	['',bspace4(8,1),''],
+	['',bspace(9,1),''],
+	[bspace2(10,0),bspace3(10,1),bspace(10,2),Ogre(10,3)],
+	['','','',bspace(11,3),Gold(50,11,4)]
+	
+]
+grid2 = [
+	[bspace(0,0),'',bspace(0,2)],
+	[Goblin(1,0),bspace2(1,1),''],
+	[GiantSpider(2,0),Ogre(2,1),bspace4(2,2),'','','','',Gold(200,2,6)], #win spot
+	['',bspace(3,1),'','',Dragon(3,4),'',Goblin(3,6)],
+	['',bspace2(4,1),'','',bspace3(4,4),bspace4(4,5),bspace2(4,6)],
+	[bspace(5,0),bspace4(5,1),Goblin(5,2),bspace(5,3),Ogre(5,4)],
 	[bspace3(6,0),'',''],
 	[bspace2(7,0),bspace(7,1),''],
 	['',bspace4(8,1),''],
@@ -111,10 +127,6 @@ def keyHandle(grid):
 		if me.hp<=0:
 			break
 
-		if me.x == 4 and y == 11:
-			print("\n\n\n\n\n\n\n******************You Win!!!!!!!****************\n\n\n\n\n\n\n\n")
-			break
-
 		if grid[me.y][me.x].name in enemylist:#!= 'bspace':		
 			me.hp = atthandle(grid,me.x,me.y,me)		
 		elif grid[me.y][me.x].name in itemlist:
@@ -127,12 +139,15 @@ def keyHandle(grid):
 def Adventure1():
 	print('In the Caverns has been started.\n')
 	keyHandle(grid1)
-
+def Adventure2():
+	print('A realllly hard maze has been started.\n')
+	keyHandle(grid2)
 def startScreen():
 	print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
-	print('Available adventures:\n	1) In the Caverns')
+	print('Available adventures:\n	1) In the Caverns\n	2) A realllly hard maze')
 	pick = input('Which adventure? Type # here: ')
 	if pick == '1':
 		Adventure1()
-		
+	elif pick == '2':
+		Adventure2()
 startScreen()
