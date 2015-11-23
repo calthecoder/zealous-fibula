@@ -27,7 +27,7 @@ class Weapon(Item):
 	"""
 
 class Rock(Weapon):
-	def __init__(self,x,y):
+	def __init__(self,y,x):
 		self.x = x
 		self.y = y
 		super().__init__(name="Rock",
@@ -39,7 +39,7 @@ class Rock(Weapon):
 
 
 class Dagger(Weapon):
-	def __init__(self,x,y):
+	def __init__(self,y,x):
 		self.x = x
 		self.y = y
 		super().__init__(name="Dagger",
@@ -50,7 +50,7 @@ class Dagger(Weapon):
 						dex=4)
 		
 class Sword(Weapon):
-	def __init__(self,x,y):
+	def __init__(self,y,x):
 		self.x = x
 		self.y = y
 		super().__init__(name="Sword",
@@ -61,7 +61,7 @@ class Sword(Weapon):
 						dex=4)
 
 class Gold(Item):
-	def __init__(self, amt, x, y):
+	def __init__(self, amt, y,x):
 		self.amt = amt
 		self.x = x
 		self.y = y

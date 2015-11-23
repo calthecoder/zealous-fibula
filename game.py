@@ -17,6 +17,7 @@ Beta 0.3.6 - Lowered battle time to 5 seconds
 Beta 0.3.7 - Moved main loop into keyHandle(grid); avoids repition
 Beta 0.3.8 - Made new maze option, grid2
 Beta 0.3.9 - Added 'win spot' x and y vars
+Beta 0.4.1 - Changed x,y order for classes in items.py and enemies.py to y,x (to fit with python list standards)
 """
 import player, sys
 from enemies import *
@@ -134,6 +135,8 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			break
 		if me.x == pasx and me.y == pasy:
 			print(win_statement)
+			sys.exit()
+			
 		if grid[me.y][me.x].name in enemylist:#!= 'bspace':		
 			me.hp = atthandle(grid,me.x,me.y,me)		
 		elif grid[me.y][me.x].name in itemlist:
@@ -145,7 +148,7 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 
 def Adventure1():
 	print('In the Caverns has been started.\n')
-	keyHandle(grid1,11,4)
+	keyHandle(grid1,4,11)
 def Adventure2():
 	print('A realllly hard maze has been started.\n')
 	keyHandle(grid2,2,6)

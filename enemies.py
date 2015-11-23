@@ -55,7 +55,7 @@ class Enemy:
         self.description = 'An empty cave with nothing but a dead beast in it'
                 
 class Goblin(Enemy):
-    def __init__(self, x, y):
+    def __init__(self, y,x):
         super().__init__(name='Goblin',
                          hp=60,
                          description='A normal evil minion which does the general evil bidding of its master.',
@@ -64,7 +64,7 @@ class Goblin(Enemy):
         self.y = y
         
 class Ogre(Enemy):
-    def __init__(self, x, y):
+    def __init__(self,y,x):
         super().__init__(name='Ogre',
                          hp=85,
                          description='A fairly stupid bloke, all it does is smash anything that moves.',
@@ -73,7 +73,7 @@ class Ogre(Enemy):
         self.y = y
         
 class GiantSpider(Enemy):
-    def __init__(self, x, y):
+    def __init__(self, y,x):
         super().__init__(name='Giant Spider',
                          hp=125,
                          description='This extremely dangerous beast will split you in half and then suck out your organs.',
@@ -82,7 +82,7 @@ class GiantSpider(Enemy):
         self.y = y
         
 class Dragon(Enemy):
-    def __init__(self, x, y):
+    def __init__(self,y,x):
         super().__init__(name='Dragon',
                          hp=500,
                          description='You definetely do not want to cross paths with this dude!!',
@@ -93,7 +93,7 @@ class Dragon(Enemy):
 
 #Blanks
 class bspace(Enemy):
-	def __init__(self, x, y):
+	def __init__(self,y,x):
 		super().__init__(name='bspace',
                                  hp=-1000, 
                                  description='An empty cave room with nothing in it.',
@@ -101,7 +101,7 @@ class bspace(Enemy):
 		self.x = x
 		self.y = y
 class bspace2(Enemy):
-    def __init__(self, x, y):
+    def __init__(self,y,x):
         super().__init__(name='bspace',
                          hp=-1000,
                          description='An empty cave room with nothing in it.',
@@ -109,7 +109,7 @@ class bspace2(Enemy):
         self.x = x
         self.y = y
 class bspace3(Enemy):
-	def __init__(self, x, y):
+	def __init__(self,y,x):
 		super().__init__(name='bspace',
                                  hp=-1000,
                                  description='An empty cave room with nothing in it.',
@@ -117,7 +117,7 @@ class bspace3(Enemy):
 		self.x = x
 		self.y = y
 class bspace4(Enemy):
-	def __init__(self, x, y):
+	def __init__(self,y,x):
 		super().__init__(name='bspace',
                                  hp=-1000,
                                  description='An empty cave room with nothing in it.', 
@@ -126,7 +126,7 @@ class bspace4(Enemy):
 		self.y = y
         
 class bspace5(Enemy): #for items that were picked up
-	def __init__(self, x, y):
+	def __init__(self,y,x):
 		super().__init__(name='bspace',
                                  hp=-1000,
                                  description='An empty cave room with nothing in it.', 
