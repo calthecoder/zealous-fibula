@@ -6,7 +6,7 @@ class Player:
 		self.y = y
 		self.name = ''
 		self.hp = 100
-		self.weapon = items.Dagger(0,0) #(0,0) placeholders
+		self.weapon = items.Dagger(self.y,self.x) #(0,0) placeholders
 		self.invent = []
 
 	def printHP(self):
