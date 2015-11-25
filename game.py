@@ -21,6 +21,7 @@ Beta 0.4.1 - Changed x,y order for classes in items.py and enemies.py to y,x (to
 Beta 0.4.2 - Edited README.md to include a changelog
 Beta 0.4.3 - Fixed changelog formatting
 Beta 0.4.4 - Moved changelog to CHANGELOG
+Beta 0.4.5 - Added the player editor
 """
 import player, sys
 from enemies import *
@@ -130,6 +131,26 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			print(helplist)
 		elif i == 'i' or i == 'I':
 			me.printInvent()
+		elif i == 'p' or i == 'P':
+			i = input('Welcome to the Player Editor!\nWhat would you like to change? (w = weapon, n = name) ')
+			if i == 'w':
+				ct = 0
+				for tp in range(0, len(me.invent)):
+					if me.invent[tp].name in weaponlist:
+						print(str(tp)+') '+me.invent[tp].name)
+						ct += 1
+				if ct == 0:
+					print('Sorry, you have no weapons in your inventory to choose from.')
+				else:
+					i = input('Type weapon number: ')
+					me.weapon = me.invent[int(i)]
+					print('Weapon Changed!')
+					#print('You: \nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon:
+			elif i == 'n':
+				i = input('Type your name: ')
+				me.name = i
+				print('Name Changed!')
+		
 		elif i == 'quit':
 			sys.exit()
 		else:

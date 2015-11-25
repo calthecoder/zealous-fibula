@@ -1,4 +1,5 @@
 itemlist = ['Rock', 'Dagger', 'Sword', 'Gold']
+weaponlist = ['Rock', 'Dagger', 'Sword']
 
 class Item():
 	"""The base class for all items"""

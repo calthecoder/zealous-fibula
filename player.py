@@ -1,4 +1,4 @@
-import items
+from items import *
 class Player:	
 	
 	def __init__(self, x, y):		
@@ -6,8 +6,8 @@ class Player:
 		self.y = y
 		self.name = ''
 		self.hp = 100
-		self.weapon = items.Dagger(self.y,self.x) #(0,0) placeholders
-		self.invent = []
+		self.weapon = Dagger(self.y,self.x) #(0,0) placeholders
+		self.invent = [Rock(self.y,self.x), Sword(self.y,self.x)]
 
 	def printHP(self):
 		print("Health Points: "+str(self.hp))
