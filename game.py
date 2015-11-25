@@ -12,7 +12,7 @@ Beta 0.3.1 - Nicely formatted output for inventory
 Beta 0.3.2 - Moved the main loop into Adventure1(); allows expansion
 Beta 0.3.3 - Added startScreen() function
 Beta 0.3.4 - 'Quit' now works to exit
-Beta 0.3.5 - Lowered difference of item.damage*item.dex and enemy.hp
+Beta 0.3.5 - Lowered difference of (item.damage multiplied by item.dex) and enemy.hp
 Beta 0.3.6 - Lowered battle time to 5 seconds
 Beta 0.3.7 - Moved main loop into keyHandle(grid); avoids repition
 Beta 0.3.8 - Made new maze option, grid2
@@ -20,6 +20,7 @@ Beta 0.3.9 - Added 'win spot' x and y vars
 Beta 0.4.1 - Changed x,y order for classes in items.py and enemies.py to y,x (to fit with python list standards)
 Beta 0.4.2 - Edited README.md to include a changelog
 Beta 0.4.3 - Fixed changelog formatting
+Beta 0.4.4 - Moved changelog to CHANGELOG
 """
 import player, sys
 from enemies import *
