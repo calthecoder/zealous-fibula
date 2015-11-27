@@ -22,6 +22,7 @@ Beta 0.4.2 - Edited README.md to include a changelog
 Beta 0.4.3 - Fixed changelog formatting
 Beta 0.4.4 - Moved changelog to CHANGELOG
 Beta 0.4.5 - Added the player editor
+Beta 0.4.6 - Added switching the weapon out from the inventory
 """
 import player, sys
 from enemies import *
@@ -143,14 +144,16 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 					print('Sorry, you have no weapons in your inventory to choose from.')
 				else:
 					i = input('Type weapon number: ')
+					old_weap = me.weapon
 					me.weapon = me.invent[int(i)]
+					del me.invent[int(i)]
+					me.invent.append(old_weap)
 					print('Weapon Changed!')
-					#print('You: \nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon:
 			elif i == 'n':
 				i = input('Type your name: ')
 				me.name = i
 				print('Name Changed!')
-		
+			print('You: \n\nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon: '+me.weapon.name)
 		elif i == 'quit':
 			sys.exit()
 		else:
