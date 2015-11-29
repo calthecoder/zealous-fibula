@@ -7,7 +7,7 @@ class Player:
 		self.name = ''
 		self.hp = 100
 		self.weapon = Dagger(self.y,self.x) #(0,0) placeholders
-		self.invent = [Rock(self.y,self.x), Sword(self.y,self.x)]
+		self.invent = []
 
 	def printHP(self):
 		print("Health Points: "+str(self.hp))

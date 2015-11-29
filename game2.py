@@ -23,6 +23,7 @@ Beta 0.4.3 - Fixed changelog formatting
 Beta 0.4.4 - Moved changelog to CHANGELOG
 Beta 0.4.5 - Added the player editor
 Beta 0.4.6 - Added switching the weapon out from the inventory
+Beta 0.4.7 - Changed grid2; added 'xy' keystroke
 """
 import player, sys
 from enemies import *
@@ -41,6 +42,7 @@ Keylist:
 	i = inventory
 	h = help
 	p = player editor (change weapon, name...)
+	xy = displays coordinates
 	hp = health
 	quit = quit
 """
@@ -69,11 +71,8 @@ grid2 = [
 	[bspace(5,0),bspace4(5,1),Goblin(5,2),bspace(5,3),Ogre(5,4)],
 	[bspace3(6,0),'',''],
 	[bspace2(7,0),bspace(7,1),''],
-	['',bspace4(8,1),''],
-	['',bspace(9,1),''],
-	[bspace2(10,0),bspace3(10,1),bspace(10,2),Ogre(10,3)],
-	['','','',bspace(11,3),Gold(50,11,4)]
-	
+	['',Dragon(8,1),'']
+
 ]
 
 win_statement = """
@@ -85,6 +84,11 @@ def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
 
+def switch(l,p1y,p1x,p2y,p2x):
+	old = l[p2y][p2x]
+	l[p2y][p2x] = l[p1y][p1x]
+	l[p1y][p1x] = old
+	
 def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
@@ -108,7 +112,6 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 				print("Bonk! You can't go that way.")
 		elif i == 'd' or i == 'D':
 			me.x+=1
-
 			try:
 				print('You walk to the rightmost room and see '+grid[me.y][me.x].pview, end='')			
 			except:
@@ -154,6 +157,8 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 				me.name = i
 				print('Name Changed!')
 			print('You: \n\nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon: '+me.weapon.name)
+		elif i == 'xy':
+			print('\nX: '+str(me.x)+'\nY: '+str(me.y))
 		elif i == 'quit':
 			sys.exit()
 		else:
@@ -173,6 +178,10 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 				me.invent.append(grid[me.y][me.x])
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
+		print('Begin test of ALERT emergency alert system.')
+		print(grid[0][0].name+'\n'+grid[0][1].name)
+		switch(grid,0,0,1,0)
+		print(grid[0][0].name+'\n'+grid[0][1].name)
 
 def Adventure1():
 	print('In the Caverns has been started.\n')

@@ -24,6 +24,7 @@ Beta 0.4.4 - Moved changelog to CHANGELOG
 Beta 0.4.5 - Added the player editor
 Beta 0.4.6 - Added switching the weapon out from the inventory
 Beta 0.4.7 - Changed grid2; added 'xy' keystroke
+Beta 0.4.8 - Added switch() function for moving monsters!
 """
 import player, sys
 from enemies import *
@@ -72,7 +73,7 @@ grid2 = [
 	[bspace3(6,0),'',''],
 	[bspace2(7,0),bspace(7,1),''],
 	['',Dragon(8,1),'']
-		
+
 ]
 
 win_statement = """
@@ -84,6 +85,11 @@ def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
 
+def switch(l,p1x,p1y,p2x,p2y):
+	old = l[p2y][p2x]
+	l[p2y][p2x] = l[p1y][p1x]
+	l[p1y][p1x] = old
+	
 def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
@@ -107,7 +113,6 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 				print("Bonk! You can't go that way.")
 		elif i == 'd' or i == 'D':
 			me.x+=1
-
 			try:
 				print('You walk to the rightmost room and see '+grid[me.y][me.x].pview, end='')			
 			except:
@@ -154,7 +159,7 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 				print('Name Changed!')
 			print('You: \n\nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon: '+me.weapon.name)
 		elif i == 'xy':
-			print('\nX: '+str(me.x)+'\nY: '+str(me.y)
+			print('\nX: '+str(me.x)+'\nY: '+str(me.y))
 		elif i == 'quit':
 			sys.exit()
 		else:
