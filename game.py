@@ -85,11 +85,11 @@ def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
 
-def switch(l,p1x,p1y,p2x,p2y):
+def switch(l,p1y,p1x,p2y,p2x):
 	old = l[p2y][p2x]
 	l[p2y][p2x] = l[p1y][p1x]
 	l[p1y][p1x] = old
-	
+
 def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
