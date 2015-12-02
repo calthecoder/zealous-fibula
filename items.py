@@ -33,7 +33,7 @@ class Rock(Weapon):
 		self.y = y
 		super().__init__(name="Rock",
 						description="A fist-sized rock, suitable for bludgeoning.",
-						value=0,
+						value=5,
 						damage=10,
 						pview='a usless rock in the corner of the room.',
 						dex=6)

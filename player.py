@@ -8,6 +8,7 @@ class Player:
 		self.hp = 100
 		self.weapon = Dagger(self.y,self.x) #(0,0) placeholders
 		self.invent = []
+		self.wallet = 0
 
 	def printHP(self):
 		print("Health Points: "+str(self.hp))

@@ -25,6 +25,7 @@ Beta 0.4.5 - Added the player editor
 Beta 0.4.6 - Added switching the weapon out from the inventory
 Beta 0.4.7 - Changed grid2; added 'xy' keystroke
 Beta 0.4.8 - Added switch() function for moving monsters!
+Beta 0.4.9 - Added store()
 """
 import player, sys
 from enemies import *
@@ -44,6 +45,8 @@ Keylist:
 	h = help
 	p = player editor (change weapon, name...)
 	xy = displays coordinates
+	store = access the store
+	wallet = display your wallet
 	hp = health
 	quit = quit
 """
@@ -90,6 +93,42 @@ def switch(l,p1y,p1x,p2y,p2x):
 	l[p2y][p2x] = l[p1y][p1x]
 	l[p1y][p1x] = old
 
+def store():
+	dash = "-"*50
+	print('Welcome to the store. You can by weapons and other items here in exchange for gold.')
+	tmpRock = Rock(0,0)
+	tmpDagger = Dagger(0,0)
+	tmpSword = Sword(0,0)
+	print(dash)
+	print(tmpRock.name+'\n'+tmpRock.description+'\n'+str(tmpRock.value)+' Gold\nDamage: '+str(tmpRock.damage)+'\nDex (how many times it can be swung each battle): '+str(tmpRock.dex))
+	print('\n'+dash+'\n'+tmpDagger.name+'\n'+tmpDagger.description+'\n'+str(tmpDagger.value)+' Gold\nDamage: '+str(tmpDagger.damage)+'\nDex (how many times it can be swung each battle): '+str(tmpDagger.dex))
+	print('\n'+dash+'\n'+tmpSword.name+'\n'+tmpSword.description+'\n'+str(tmpSword.value)+' Gold\nDamage: '+str(tmpSword.damage)+'\nDex (how many times it can be swung each battle): '+str(tmpSword.dex))
+	print(dash)
+	pick = input('Type the name of the item you would like to purchase: ')
+	if pick == 'Rock':
+		if me.wallet >= tmpRock.value:
+			me.invent.append(Rock(me.y,me.x))
+			me.wallet -= tmpRock.value
+			print('Item added to inventory')
+		else:
+			print('You do not have enough Gold')
+	elif pick == 'Sword':
+		if me.wallet >= tmpSword.value:
+			me.invent.append(Sword(me.y,me.x))
+			me.wallet -= tmpSword.value
+			print('Item added to inventory')
+		else:
+			print('You do not have enough Gold')
+	elif pick == 'Dagger':
+		if me.wallet >= tmpDagger.value:
+			me.invent.append(Dagger(me.y,me.x))
+			me.wallet -= tmpDagger.value
+			print('Item added to inventory')
+		else:
+			print('You do not have enough Gold')
+	else:
+		print('That is not a valid item')
+	
 def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
@@ -160,6 +199,10 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			print('You: \n\nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon: '+me.weapon.name)
 		elif i == 'xy':
 			print('\nX: '+str(me.x)+'\nY: '+str(me.y))
+		elif i == 'store':
+			store()
+		elif i == 'wallet':
+			print(str(me.wallet)+' Gold')
 		elif i == 'quit':
 			sys.exit()
 		else:
@@ -167,22 +210,26 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 		############
 		if me.hp<=0:
 			break
-		if me.x == pasx and me.y == pasy:
-			print(win_statement)
-			sys.exit()
-			
+		
 		if grid[me.y][me.x].name in enemylist:#!= 'bspace':		
 			me.hp = atthandle(grid,me.x,me.y,me)		
 		elif grid[me.y][me.x].name in itemlist:
 			inp = input(' Pick up? (Y/n) ')
 			if inp == 'Y' or inp == 'y':
-				me.invent.append(grid[me.y][me.x])
+				if grid[me.y][me.x].name != 'Gold':
+					me.invent.append(grid[me.y][me.x])
+				else:
+					me.wallet += grid[me.y][me.x].amt
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
-
+				
+		if me.x == pasx and me.y == pasy:
+			print(win_statement)
+			sys.exit()
+			
 def Adventure1():
 	print('In the Caverns has been started.\n')
-	keyHandle(grid1,4,11)
+	keyHandle(grid1,0,2)
 def Adventure2():
 	print('A realllly hard maze has been started.\n')
 	keyHandle(grid2,2,6)
