@@ -25,3 +25,4 @@ Beta 0.4.6 - Added switching the weapon out from the inventory
 Beta 0.4.7 - Changed grid2; added 'xy' keystroke
 Beta 0.4.8 - Added switch() function for moving monsters!
 Beta 0.4.9 - Added store()
+Beta 0.5.1 - Added a new starting dialouge

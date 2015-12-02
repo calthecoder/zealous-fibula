@@ -26,6 +26,7 @@ Beta 0.4.6 - Added switching the weapon out from the inventory
 Beta 0.4.7 - Changed grid2; added 'xy' keystroke
 Beta 0.4.8 - Added switch() function for moving monsters!
 Beta 0.4.9 - Added store()
+Beta 0.5.1 - Added a new starting dialouge
 """
 import player, sys
 from enemies import *
@@ -78,7 +79,18 @@ grid2 = [
 	['',Dragon(8,1),'']
 
 ]
-
+before_grid1 = """
+It is an ordinary day as you take a quaint walk in the Sand Forest.
+The tall pine trees loom over you. It is almost sunset, but you have no torch.
+You decide to go back to your village soon. Suddenly, a huge bear jumps 
+out of the cover of a tree and bares its teeth at you! It snarls and you run. 
+Ahead of you, you see a cave at the bottom of a hill. You sprint towards it.
+As you reach the mouth of the cave, you grab a pine branch thick with pitch
+that was lying on the ground. The bear is close in pursuit. You dash in the 
+cave and take a right turn. Instantly, a boulder slips loose from above 
+and lands right in front of the exit! You can't see a way out, 
+but at least the bear can't get in.
+"""
 win_statement = """
 #*******************#
 #******YOU WIN******#
@@ -225,20 +237,16 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 				
 		if me.x == pasx and me.y == pasy:
 			print(win_statement)
-			sys.exit()
+			
 			
 def Adventure1():
-	print('In the Caverns has been started.\n')
+	#print('In the Caverns has been started.\n')
 	keyHandle(grid1,0,2)
 def Adventure2():
-	print('A realllly hard maze has been started.\n')
+	#print('A realllly hard maze has been started.\n')
 	keyHandle(grid2,2,6)
 def startScreen():
-	print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
-	print('Available adventures:\n	1) In the Caverns\n	2) A realllly hard maze')
-	pick = input('Which adventure? Type # here: ')
-	if pick == '1':
-		Adventure1()
-	elif pick == '2':
-		Adventure2()
+	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
+	print(before_grid1)
+	Adventure1()
 startScreen()
