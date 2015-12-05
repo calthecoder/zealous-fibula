@@ -27,6 +27,7 @@ Beta 0.4.7 - Changed grid2; added 'xy' keystroke
 Beta 0.4.8 - Added switch() function for moving monsters!
 Beta 0.4.9 - Added store()
 Beta 0.5.1 - Added a new starting dialouge
+Beta 0.5.2 - Added a new visual aid: mapg
 """
 import player, sys
 from enemies import *
@@ -48,6 +49,7 @@ Keylist:
 	xy = displays coordinates
 	store = access the store
 	wallet = display your wallet
+	map = display map
 	hp = health
 	quit = quit
 """
@@ -96,6 +98,23 @@ win_statement = """
 #******YOU WIN******#
 #*******************#
 """
+
+def mapg(l):
+	tmp = l
+	print('')
+	old = tmp[me.y][me.x]
+	tmp[me.y][me.x] = me
+	for y in range(0,11):
+		for x in range(0,len(tmp[y])):
+			try:
+				if tmp[y][x].name == me.name:
+					print('Y', end='')
+				else:
+					print('#',end='')
+			except:
+				print('*', end='')
+		print('')
+	tmp[me.y][me.x] = old
 def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
@@ -217,6 +236,8 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			print(str(me.wallet)+' Gold')
 		elif i == 'quit':
 			sys.exit()
+		elif i == 'map':
+			mapg(grid)
 		else:
 			print('Huh?')
 		############
