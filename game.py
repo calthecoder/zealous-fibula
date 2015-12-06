@@ -28,6 +28,7 @@ Beta 0.4.8 - Added switch() function for moving monsters!
 Beta 0.4.9 - Added store()
 Beta 0.5.1 - Added a new starting dialouge
 Beta 0.5.2 - Added a new visual aid: mapg
+Beta 0.5.3 - Shortened store()
 """
 import player, sys
 from enemies import *
@@ -127,33 +128,31 @@ def switch(l,p1y,p1x,p2y,p2x):
 def store():
 	dash = "-"*50
 	print('Welcome to the store. You can by weapons and other items here in exchange for gold.')
-	tmpRock = Rock(0,0)
-	tmpDagger = Dagger(0,0)
-	tmpSword = Sword(0,0)
+	tmp = [Rock(-1,-1),Dagger(-1,-1),Sword(-1,-1)]
 	print(dash)
-	print(tmpRock.name+'\n'+tmpRock.description+'\n'+str(tmpRock.value)+' Gold\nDamage: '+str(tmpRock.damage)+'\nDex (how many times it can be swung each battle): '+str(tmpRock.dex))
-	print('\n'+dash+'\n'+tmpDagger.name+'\n'+tmpDagger.description+'\n'+str(tmpDagger.value)+' Gold\nDamage: '+str(tmpDagger.damage)+'\nDex (how many times it can be swung each battle): '+str(tmpDagger.dex))
-	print('\n'+dash+'\n'+tmpSword.name+'\n'+tmpSword.description+'\n'+str(tmpSword.value)+' Gold\nDamage: '+str(tmpSword.damage)+'\nDex (how many times it can be swung each battle): '+str(tmpSword.dex))
-	print(dash)
+	for i in range(0, len(tmp)):
+		print(tmp[i].name+'\n'+tmp[i].description+'\n'+str(tmp[i].value)+' Gold\nDamage: '+str(tmp[i].damage)+'\nDex (how many times it can be swung each battle): '+str(tmp[i].dex))
+		print(dash)
+	
 	pick = input('Type the name of the item you would like to purchase: ')
-	if pick == 'Rock':
-		if me.wallet >= tmpRock.value:
+	if pick == tmp[0].name:
+		if me.wallet >= tmp[0].value:
 			me.invent.append(Rock(me.y,me.x))
-			me.wallet -= tmpRock.value
+			me.wallet -= tmp[0].value
 			print('Item added to inventory')
 		else:
 			print('You do not have enough Gold')
-	elif pick == 'Sword':
-		if me.wallet >= tmpSword.value:
+	elif pick == tmp[2].name:
+		if me.wallet >= tmp[2].value:
 			me.invent.append(Sword(me.y,me.x))
-			me.wallet -= tmpSword.value
+			me.wallet -= tmp[2].value
 			print('Item added to inventory')
 		else:
 			print('You do not have enough Gold')
-	elif pick == 'Dagger':
-		if me.wallet >= tmpDagger.value:
+	elif pick == tmp[1].name:
+		if me.wallet >= tmp[1].value:
 			me.invent.append(Dagger(me.y,me.x))
-			me.wallet -= tmpDagger.value
+			me.wallet -= tmp[1].value
 			print('Item added to inventory')
 		else:
 			print('You do not have enough Gold')
