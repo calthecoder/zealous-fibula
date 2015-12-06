@@ -29,6 +29,7 @@ Beta 0.4.9 - Added store()
 Beta 0.5.1 - Added a new starting dialouge
 Beta 0.5.2 - Added a new visual aid: mapg
 Beta 0.5.3 - Shortened store()
+Beta 0.5.4 - Made mapg() more detailed
 """
 import player, sys
 from enemies import *
@@ -105,17 +106,22 @@ def mapg(l):
 	print('')
 	old = tmp[me.y][me.x]
 	tmp[me.y][me.x] = me
-	for y in range(0,11):
+	for y in range(0,12):
 		for x in range(0,len(tmp[y])):
 			try:
 				if tmp[y][x].name == me.name:
-					print('Y', end='')
+					print('	Y', end='')
+				elif tmp[y][x].name in enemylist and tmp[y][x].hp >= 1:
+					print('	+', end='')
+				elif tmp[y][x].name == 'bspace' and tmp[y][x].hp == -1:
+					print('	x',end='')
 				else:
-					print('#',end='')
+					print('	#',end='')
 			except:
-				print('*', end='')
+				print('	*', end='')
 		print('')
 	tmp[me.y][me.x] = old
+	
 def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret

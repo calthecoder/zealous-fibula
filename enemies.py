@@ -51,7 +51,7 @@ class Enemy:
     def died(self):
         self.pview = 'a room with a dead '+self.name+' lying on the ground in a pool of blood'
         self.name = 'bspace'
-        self.hp = -1000
+        self.hp = -1 #diff than bspace
         self.description = 'An empty cave with nothing but a dead beast in it'
                 
 class Goblin(Enemy):
