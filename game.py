@@ -30,6 +30,7 @@ Beta 0.5.1 - Added a new starting dialouge
 Beta 0.5.2 - Added a new visual aid: mapg
 Beta 0.5.3 - Shortened store()
 Beta 0.5.4 - Made mapg() more detailed
+Beta 0.5.5 - Started before_grid2
 """
 import player, sys
 from enemies import *
@@ -40,6 +41,9 @@ me=player.Player(0,0)
 helplist="""
 
 Keylist:
+
+	Type `h:` followed by a specific keystroke for help on a certain function
+
 	w = forward
 	a = left
 	d = right
@@ -95,6 +99,12 @@ cave and take a right turn. Instantly, a boulder slips loose from above
 and lands right in front of the exit! You can't see a way out, 
 but at least the bear can't get in.
 """
+before_grid2 = """
+Light! You see light! Bright rays of sunshine illuminate the cave where
+the Spider had been defeated. A long, spiral staircase winds up through the
+ceiling. You step over the dead Giant Spider and climb up the staircase.
+Soon, you reach the top. 
+"""
 win_statement = """
 #*******************#
 #******YOU WIN******#
@@ -115,6 +125,8 @@ def mapg(l):
 					print('	+', end='')
 				elif tmp[y][x].name == 'bspace' and tmp[y][x].hp == -1:
 					print('	x',end='')
+				elif tmp[y][x].name in itemlist:
+					print('	!',end='')
 				else:
 					print('	#',end='')
 			except:
