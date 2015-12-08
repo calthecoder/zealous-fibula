@@ -103,7 +103,8 @@ before_grid2 = """
 Light! You see light! Bright rays of sunshine illuminate the cave where
 the Spider had been defeated. A long, spiral staircase winds up through the
 ceiling. You step over the dead Giant Spider and climb up the staircase.
-Soon, you reach the top. 
+Soon, you reach the top. Your village is visible from the top of this hill.
+You walk to it.
 """
 win_statement = """
 #*******************#
@@ -274,7 +275,7 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 				print('Item added to inventory')
 				
 		if me.x == pasx and me.y == pasy:
-			print(win_statement)
+			print()
 			
 			
 def Adventure1():
