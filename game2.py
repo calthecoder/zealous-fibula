@@ -24,6 +24,13 @@ Beta 0.4.4 - Moved changelog to CHANGELOG
 Beta 0.4.5 - Added the player editor
 Beta 0.4.6 - Added switching the weapon out from the inventory
 Beta 0.4.7 - Changed grid2; added 'xy' keystroke
+Beta 0.4.8 - Added switch() function for moving monsters!
+Beta 0.4.9 - Added store()
+Beta 0.5.1 - Added a new starting dialouge
+Beta 0.5.2 - Added a new visual aid: mapg
+Beta 0.5.3 - Shortened store()
+Beta 0.5.4 - Made mapg() more detailed
+Beta 0.5.5 - Started before_grid2
 """
 import player, sys
 from enemies import *
@@ -34,6 +41,9 @@ me=player.Player(0,0)
 helplist="""
 
 Keylist:
+
+	Type `h:` followed by a specific keystroke for help on a certain function
+
 	w = forward
 	a = left
 	d = right
@@ -43,6 +53,9 @@ Keylist:
 	h = help
 	p = player editor (change weapon, name...)
 	xy = displays coordinates
+	store = access the store
+	wallet = display your wallet
+	map = display map
 	hp = health
 	quit = quit
 """
@@ -74,12 +87,54 @@ grid2 = [
 	['',Dragon(8,1),'']
 
 ]
-
+before_grid1 = """
+It is an ordinary day as you take a quaint walk in the Sand Forest.
+The tall pine trees loom over you. It is almost sunset, but you have no torch.
+You decide to go back to your village soon. Suddenly, a huge bear jumps 
+out of the cover of a tree and bares its teeth at you! It snarls and you run. 
+Ahead of you, you see a cave at the bottom of a hill. You sprint towards it.
+As you reach the mouth of the cave, you grab a pine branch thick with pitch
+that was lying on the ground. The bear is close in pursuit. You dash in the 
+cave and take a right turn. Instantly, a boulder slips loose from above 
+and lands right in front of the exit! You can't see a way out, 
+but at least the bear can't get in.
+"""
+before_grid2 = """
+Light! You see light! Bright rays of sunshine illuminate the cave where
+the Spider had been defeated. A long, spiral staircase winds up through the
+ceiling. You step over the dead Giant Spider and climb up the staircase.
+Soon, you reach the top. Your village is visible from the top of this hill.
+You walk to it.
+"""
 win_statement = """
 #*******************#
 #******YOU WIN******#
 #*******************#
 """
+
+def mapg(l):
+	tmp = l
+	print('')
+	old = tmp[me.y][me.x]
+	tmp[me.y][me.x] = me
+	for y in range(0,12):
+		for x in range(0,len(tmp[y])):
+			try:
+				if tmp[y][x].name == me.name:
+					print('	Y', end='')
+				elif tmp[y][x].name in enemylist and tmp[y][x].hp >= 1:
+					print('	+', end='')
+				elif tmp[y][x].name == 'bspace' and tmp[y][x].hp == -1:
+					print('	x',end='')
+				elif tmp[y][x].name in itemlist:
+					print('	!',end='')
+				else:
+					print('	#',end='')
+			except:
+				print('	*', end='')
+		print('')
+	tmp[me.y][me.x] = old
+	
 def atthandle(l,x,y,playhp):
 	ret = l[y][x].act(playhp)
 	return ret
@@ -88,6 +143,40 @@ def switch(l,p1y,p1x,p2y,p2x):
 	old = l[p2y][p2x]
 	l[p2y][p2x] = l[p1y][p1x]
 	l[p1y][p1x] = old
+
+def store():
+	dash = "-"*50
+	print('Welcome to the store. You can by weapons and other items here in exchange for gold.')
+	tmp = [Rock(-1,-1),Dagger(-1,-1),Sword(-1,-1)]
+	print(dash)
+	for i in range(0, len(tmp)):
+		print(tmp[i].name+'\n'+tmp[i].description+'\n'+str(tmp[i].value)+' Gold\nDamage: '+str(tmp[i].damage)+'\nDex (how many times it can be swung each battle): '+str(tmp[i].dex))
+		print(dash)
+	
+	pick = input('Type the name of the item you would like to purchase: ')
+	if pick == tmp[0].name:
+		if me.wallet >= tmp[0].value:
+			me.invent.append(Rock(me.y,me.x))
+			me.wallet -= tmp[0].value
+			print('Item added to inventory')
+		else:
+			print('You do not have enough Gold')
+	elif pick == tmp[2].name:
+		if me.wallet >= tmp[2].value:
+			me.invent.append(Sword(me.y,me.x))
+			me.wallet -= tmp[2].value
+			print('Item added to inventory')
+		else:
+			print('You do not have enough Gold')
+	elif pick == tmp[1].name:
+		if me.wallet >= tmp[1].value:
+			me.invent.append(Dagger(me.y,me.x))
+			me.wallet -= tmp[1].value
+			print('Item added to inventory')
+		else:
+			print('You do not have enough Gold')
+	else:
+		print('That is not a valid item')
 	
 def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 	while True:
@@ -159,42 +248,44 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			print('You: \n\nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon: '+me.weapon.name)
 		elif i == 'xy':
 			print('\nX: '+str(me.x)+'\nY: '+str(me.y))
+		elif i == 'store':
+			store()
+		elif i == 'wallet':
+			print(str(me.wallet)+' Gold')
 		elif i == 'quit':
 			sys.exit()
+		elif i == 'map':
+			mapg(grid)
 		else:
 			print('Huh?')
 		############
 		if me.hp<=0:
 			break
-		if me.x == pasx and me.y == pasy:
-			print(win_statement)
-			sys.exit()
-			
+		
 		if grid[me.y][me.x].name in enemylist:#!= 'bspace':		
 			me.hp = atthandle(grid,me.x,me.y,me)		
 		elif grid[me.y][me.x].name in itemlist:
 			inp = input(' Pick up? (Y/n) ')
 			if inp == 'Y' or inp == 'y':
-				me.invent.append(grid[me.y][me.x])
+				if grid[me.y][me.x].name != 'Gold':
+					me.invent.append(grid[me.y][me.x])
+				else:
+					me.wallet += grid[me.y][me.x].amt
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
-		print('Begin test of ALERT emergency alert system.')
-		print(grid[0][0].name+'\n'+grid[0][1].name)
-		switch(grid,0,0,1,0)
-		print(grid[0][0].name+'\n'+grid[0][1].name)
-
+				
+		if me.x == pasx and me.y == pasy:
+			print()
+			
+			
 def Adventure1():
-	print('In the Caverns has been started.\n')
-	keyHandle(grid1,4,11)
+	#print('In the Caverns has been started.\n')
+	keyHandle(grid1,0,2)
 def Adventure2():
-	print('A realllly hard maze has been started.\n')
+	#print('A realllly hard maze has been started.\n')
 	keyHandle(grid2,2,6)
 def startScreen():
-	print('\nWelcome to Zealous Fibula.\nYour goal is to find your way out of the maze\nGood Luck!\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
-	print('Available adventures:\n	1) In the Caverns\n	2) A realllly hard maze')
-	pick = input('Which adventure? Type # here: ')
-	if pick == '1':
-		Adventure1()
-	elif pick == '2':
-		Adventure2()
+	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
+	print(before_grid1)
+	Adventure1()
 startScreen()
