@@ -6,13 +6,11 @@ class Interactive():
 		self.pview = pview
 		self.dialogue = dialogue
 		self.dchoices = dchoices
+		
 	def talk_loop(self, lowrange, dchNum, diaNum):#could do just one arg
 		print(self.dialogue[diaNum])
 		for i in range(lowrange,len(self.dchoices[dchNum])): #add docs for this
 			print(str(i)+') '+self.dchoices[dchNum][i])
-
-	def act(self):
-		pass
 
 class HumanInt(Interactive):
 	def __init__(self, y, x, name, hp, description, pview, dialogue, dchoices):
@@ -36,10 +34,10 @@ class Blacksmith(HumanInt):
 						dialogue = ["Welcome to my smithy. How can I help you?", "I can do that. Which one would you like me to make?"], #dialogue[0] leads to dchoices[0]
 						dchoices = [["I'd like a new tool.", "Oh, I'm just passing by."],["Rapier", "Broadsword"]])#list
 
-	def handle(self):
+	def act(self): #may work
 		self.talk_loop(0,0,0)
 		inp = input('Answer (Type the number): ')
 		if int(inp) == 0:
 			self.talk_loop(0,1,1)
-
+		
 #dchoices is a 2d list to show what the user can answer with
