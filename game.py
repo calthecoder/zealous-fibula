@@ -31,6 +31,7 @@ Beta 0.5.2 - Added a new visual aid: mapg
 Beta 0.5.3 - Shortened store()
 Beta 0.5.4 - Made mapg() more detailed
 Beta 0.5.5 - Started before_grid2
+Beta 0.5.6 - Started working on interactives.py - a new library for interaction!!
 """
 import player, sys
 from enemies import *
