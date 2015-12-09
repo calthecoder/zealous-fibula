@@ -32,11 +32,12 @@ Beta 0.5.3 - Shortened store()
 Beta 0.5.4 - Made mapg() more detailed
 Beta 0.5.5 - Started before_grid2
 Beta 0.5.6 - Started working on interactives.py - a new library for interaction!!
+Beta 0.5.7 - Fixed up interactives.py and added some weapons for use in interactives
 """
 import player, sys
 from enemies import *
 from items import *
-
+from interactives import *
 me=player.Player(0,0)
 
 helplist="""
@@ -150,10 +151,11 @@ def store():
 	print('Welcome to the store. You can by weapons and other items here in exchange for gold.')
 	tmp = [Rock(-1,-1),Dagger(-1,-1),Sword(-1,-1)]
 	print(dash)
+	###
 	for i in range(0, len(tmp)):
 		print(tmp[i].name+'\n'+tmp[i].description+'\n'+str(tmp[i].value)+' Gold\nDamage: '+str(tmp[i].damage)+'\nDex (how many times it can be swung each battle): '+str(tmp[i].dex))
 		print(dash)
-	
+	###
 	pick = input('Type the name of the item you would like to purchase: ')
 	if pick == tmp[0].name:
 		if me.wallet >= tmp[0].value:
@@ -274,7 +276,9 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 					me.wallet += grid[me.y][me.x].amt
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
-				
+		elif grid[me.y][me.x] in interlist:
+			self.wallet = grid[me.y][me.x].act[me.invent,me.wallet]
+
 		if me.x == pasx and me.y == pasy:
 			print()
 			

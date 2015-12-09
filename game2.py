@@ -31,6 +31,7 @@ Beta 0.5.2 - Added a new visual aid: mapg
 Beta 0.5.3 - Shortened store()
 Beta 0.5.4 - Made mapg() more detailed
 Beta 0.5.5 - Started before_grid2
+Beta 0.5.6 - Started working on interactives.py - a new library for interaction!!
 """
 import player, sys
 from enemies import *
@@ -149,10 +150,11 @@ def store():
 	print('Welcome to the store. You can by weapons and other items here in exchange for gold.')
 	tmp = [Rock(-1,-1),Dagger(-1,-1),Sword(-1,-1)]
 	print(dash)
+	###
 	for i in range(0, len(tmp)):
 		print(tmp[i].name+'\n'+tmp[i].description+'\n'+str(tmp[i].value)+' Gold\nDamage: '+str(tmp[i].damage)+'\nDex (how many times it can be swung each battle): '+str(tmp[i].dex))
 		print(dash)
-	
+	###
 	pick = input('Type the name of the item you would like to purchase: ')
 	if pick == tmp[0].name:
 		if me.wallet >= tmp[0].value:

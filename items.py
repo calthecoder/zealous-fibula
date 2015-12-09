@@ -1,5 +1,5 @@
-itemlist = ['Rock', 'Dagger', 'Sword', 'Gold']
-weaponlist = ['Rock', 'Dagger', 'Sword']
+itemlist = ['Rock', 'Dagger', 'Sword', 'Gold','Broadsword','Rapier']
+weaponlist = ['Rock', 'Dagger', 'Sword','Broadsword','Rapier']
 
 class Item():
 	"""The base class for all items"""
@@ -60,7 +60,26 @@ class Sword(Weapon):
 						damage=37,
 						pview='a long broadsword with a bland handle.',
 						dex=4)
-
+class Rapier(Weapon):
+	def __init__(self,y,x):
+		self.x = x
+		self.y = y
+		super().__init__(name="Rapier",
+						description="A long, thin sword. Very manuverable.",
+						value=75,
+						damage=30,
+						pview='a long, thin rapier with an elaborate blade design.',
+						dex=6)
+class Broadsword(Weapon):
+	def __init__(self,y,x):
+		self.x = x
+		self.y = y
+		super().__init__(name="Broadsword",
+						description="A wide sword. Heavy, but gives much damage.",
+						value=87,
+						damage=50,
+						pview='a wide, heavy sword.',
+						dex=3)
 class Gold(Item):
 	def __init__(self, amt, y,x):
 		self.amt = amt
