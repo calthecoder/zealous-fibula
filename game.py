@@ -33,6 +33,7 @@ Beta 0.5.4 - Made mapg() more detailed
 Beta 0.5.5 - Started before_grid2
 Beta 0.5.6 - Started working on interactives.py - a new library for interaction!!
 Beta 0.5.7 - Fixed up interactives.py and added some weapons for use in interactives
+Beta 0.5.8 - Added a map key
 """
 import player, sys
 from enemies import *
@@ -135,6 +136,7 @@ def mapg(l):
 			except:
 				print('	*', end='')
 		print('')
+	print('\nY = You\n+ = Live Monster\nx = Dead Monster\n! = Item\n# = Blank Space\n* = You cannot go here')
 	tmp[me.y][me.x] = old
 	
 def atthandle(l,x,y,playhp):
