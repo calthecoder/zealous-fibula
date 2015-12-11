@@ -21,26 +21,16 @@ class Interactive():
 			return int(inp)
 		except:
 			self.get_inp()
-class HumanInt(Interactive):
-	def __init__(self, y, x, name, hp, description, pview, dialogue, dchoices):
+
+class Blacksmith(Interactive):
+	def __init__(self, y, x):
 		self.y = y
 		self.x = x
-		super().__init__(name = 'Human',
-						hp = 100,
-						description = 'An ordinary trader',
-						pview = pview,
-						dialogue = dialogue,
-						dchoices = dchoices)
-
-class Blacksmith(HumanInt):
-	def __init__(self, y, x):
 		self.tmp = [Rapier(-1,-1),Broadsword(-1,-1)]
-		super().__init__(y = y,
-						x = x,
-						name = 'Blacksmith',
+		super().__init__(name = 'Blacksmith',
 						hp = 100,
 						description = 'An older, skilled Blacksmith.',
-						pview = ' a Blacksmith forging a new tool.',
+						pview = 'a Blacksmith forging a new tool.',
 						dialogue = ["Welcome to my smithy. How can I help you?", "I can do that. Which one would you like me to make?","Would you like to know more about that weapon?","Are you ready to purchase it?"],
 						dchoices = [["I'd like a new tool.","Oh, I'm just passing by"],["Rapier","Broadsword"],["Yes","No"],["Yes","No"]])
 
@@ -60,5 +50,8 @@ class Blacksmith(HumanInt):
 				if wallet >= self.tmp[wc].value:
 					wallet -= selt.tmp[wc].value
 					invent.append(self.tmp[wc])
+					print("Here it is!")
+				else:
+					print('You do not have enough Gold.')
 			return wallet
 				#dchoices is a 2d list to show what the user can answer with

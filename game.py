@@ -34,6 +34,7 @@ Beta 0.5.5 - Started before_grid2
 Beta 0.5.6 - Started working on interactives.py - a new library for interaction!!
 Beta 0.5.7 - Fixed up interactives.py and added some weapons for use in interactives
 Beta 0.5.8 - Added a map key
+Beta 0.5.9 - Removed HumanInt class
 """
 import player, sys
 from enemies import *
@@ -278,11 +279,13 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 					me.wallet += grid[me.y][me.x].amt
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
-		elif grid[me.y][me.x] in interlist:
-			self.wallet = grid[me.y][me.x].act[me.invent,me.wallet]
+		if grid[me.y][me.x].name in interlist:
+			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
 
 		if me.x == pasx and me.y == pasy:
-			print()
+			print('In the village\n')
+			print(before_grid2)
+			Adventure2()
 			
 			
 def Adventure1():
