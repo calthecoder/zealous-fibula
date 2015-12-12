@@ -35,6 +35,7 @@ Beta 0.5.6 - Started working on interactives.py - a new library for interaction!
 Beta 0.5.7 - Fixed up interactives.py and added some weapons for use in interactives
 Beta 0.5.8 - Added a map key
 Beta 0.5.9 - Removed HumanInt class
+Beta 0.6.1 - Fixed mapg() error
 """
 import player, sys
 from enemies import *
@@ -121,7 +122,11 @@ def mapg(l):
 	print('')
 	old = tmp[me.y][me.x]
 	tmp[me.y][me.x] = me
-	for y in range(0,12):
+	if l == grid2:
+		yr = 9
+	elif l == grid1:
+		yr = 12
+	for y in range(0,yr):
 		for x in range(0,len(tmp[y])):
 			try:
 				if tmp[y][x].name == me.name:
@@ -283,19 +288,22 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
 
 		if me.x == pasx and me.y == pasy:
-			print('In the village\n')
-			print(before_grid2)
+			print("-"*60)
+			me.hp = 100
+			me.x = 0
+			me.y = 0
 			Adventure2()
 			
 			
 def Adventure1():
 	#print('In the Caverns has been started.\n')
+	print(before_grid1)
 	keyHandle(grid1,0,2)
 def Adventure2():
 	#print('A realllly hard maze has been started.\n')
+	print(before_grid2)
 	keyHandle(grid2,2,6)
 def startScreen():
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
-	print(before_grid1)
 	Adventure1()
 startScreen()
