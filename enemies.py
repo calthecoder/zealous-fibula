@@ -29,7 +29,7 @@ class Enemy:
             m = input('Attack or move on? (Q, M) ')
             if m == 'q' or m == 'Q':
                 return self.attack(ret)
-            elif m == 'M' or m == 'm':
+            else:
                 return ret.hp #needs to be ret.hp, not just ret. See changelog, 0.2.4
         
     def attack(self, p_obj):

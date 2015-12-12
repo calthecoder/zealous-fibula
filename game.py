@@ -36,6 +36,7 @@ Beta 0.5.7 - Fixed up interactives.py and added some weapons for use in interact
 Beta 0.5.8 - Added a map key
 Beta 0.5.9 - Removed HumanInt class
 Beta 0.6.1 - Fixed mapg() error
+Beta 0.6.2 - Fixed error that happened when you pressed something other than "m" or "q" in Enemy.act()
 """
 import player, sys
 from enemies import *
