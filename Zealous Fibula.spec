@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['game.py'],
-             pathex=['/Users/calvin/Documents/zealous-fibula-master/zealous-fibula'],
+             pathex=['/media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns'],
              binaries=None,
              datas=None,
              hiddenimports=[],
