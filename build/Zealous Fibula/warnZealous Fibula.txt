@@ -1,43 +1,48 @@
+missing module named _io.StringIO - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.UnsupportedOperation - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.DEFAULT_BUFFER_SIZE - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.BytesIO - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.TextIOWrapper - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.BufferedRandom - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.BufferedReader - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.BufferedWriter - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.IncrementalNewlineDecoder - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.FileIO - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.BufferedRWPair - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.BlockingIOError - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _io.open - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named time.sleep - imported by time, enemies
 missing module named _datetime.__doc__ - imported by _datetime, datetime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named unicodedata.ucd_3_2_0 - imported by unicodedata, stringprep, encodings.idna, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named re.compile - imported by re, _strptime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named re.IGNORECASE - imported by re, _strptime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named re.escape - imported by re, _strptime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named posix._exit - imported by posix, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named posix._have_functions - imported by posix, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named ce - imported by os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named ce._exit - imported by ce, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named ce._have_functions - imported by ce, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _collections.defaultdict - imported by _collections, collections, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _collections.deque - imported by _collections, collections, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _operator.__doc__ - imported by _operator, operator, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named collections.ChainMap - imported by collections, string, configparser, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named collections.deque - imported by collections, threading, contextlib, ast, shlex, pydoc, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _sre.MAXREPEAT - imported by _sre, sre_constants, sre_parse, sre_compile, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named collections.OrderedDict - imported by collections, inspect, pprint, enum, email._header_value_parser, configparser, unittest.util, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _opcode.stack_effect - imported by _opcode, opcode, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _imp.lock_held - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _imp._fix_co_filename - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _imp.release_lock - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _imp.get_frozen_object - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _imp.release_lock - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _imp.is_frozen - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _imp.is_frozen_package - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _imp.lock_held - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _imp.init_builtin - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _imp.acquire_lock - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _imp.init_frozen - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _imp.is_builtin - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _imp.acquire_lock - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _imp.is_frozen_package - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _imp.is_frozen - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _imp.init_builtin - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _imp.load_dynamic - imported by _imp, imp, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 excluded module named _frozen_importlib - imported by importlib, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named zipimport.zipimporter - imported by zipimport, pkgutil, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named win32api - imported by platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named win32api.RegQueryValueEx - imported by win32api, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named win32api.RegOpenKeyEx - imported by win32api, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named win32api.RegCloseKey - imported by win32api, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named win32api.RegOpenKeyEx - imported by win32api, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named win32api.GetVersionEx - imported by win32api, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named win32con - imported by platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named win32con.VER_NT_WORKSTATION - imported by win32con, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named win32con.VER_PLATFORM_WIN32_NT - imported by win32con, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named win32con.HKEY_LOCAL_MACHINE - imported by win32con, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named win32con.VER_PLATFORM_WIN32_WINDOWS - imported by win32con, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named win32con.VER_PLATFORM_WIN32_NT - imported by win32con, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _scproxy._get_proxies - imported by _scproxy, urllib.request
 missing module named _scproxy._get_proxy_settings - imported by _scproxy, urllib.request
 missing module named _scproxy - imported by urllib.request
@@ -49,146 +54,152 @@ missing module named java - imported by platform, /media/calvin/Data/Calvin/Codi
 missing module named java.System - imported by java, platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named 'java.lang' - imported by platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py, xml.sax._exceptions
 missing module named vms_lib - imported by platform, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.OPENSSL_VERSION - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.OPENSSL_VERSION_INFO - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.OPENSSL_VERSION_NUMBER - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.OPENSSL_VERSION_INFO - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.OPENSSL_VERSION - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl._SSLContext - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.SSLEOFError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.SSLError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.SSLWantReadError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.SSLSyscallError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.SSLWantWriteError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.SSLError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.SSLZeroReturnError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.CERT_OPTIONAL - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.SSLSyscallError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.SSLWantReadError - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.CERT_REQUIRED - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.CERT_OPTIONAL - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.CERT_NONE - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.VERIFY_CRL_CHECK_CHAIN - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.VERIFY_X509_STRICT - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.VERIFY_DEFAULT - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.VERIFY_CRL_CHECK_LEAF - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.VERIFY_X509_STRICT - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.txt2obj - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.nid2obj - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.RAND_status - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.txt2obj - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.RAND_add - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.RAND_pseudo_bytes - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.RAND_bytes - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.RAND_status - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.RAND_pseudo_bytes - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.RAND_egd - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.HAS_NPN - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.HAS_ECDH - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.HAS_SNI - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.HAS_NPN - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl._OPENSSL_API_VERSION - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.PROTOCOL_SSLv2 - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.PROTOCOL_TLSv1_1 - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.PROTOCOL_TLSv1_2 - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _ssl.enum_certificates - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _ssl.enum_crls - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _ssl.enum_certificates - imported by _ssl, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named collections.abc.MutableMapping - imported by collections.abc, configparser, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named winreg - imported by platform, mimetypes, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py, urllib.request
-missing module named os.urandom - imported by os, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named quopri.encodestring - imported by quopri, email.encoders, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _hashlib.pbkdf2_hmac - imported by _hashlib, hashlib, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named hashlib.sha512 - imported by hashlib, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _bz2.BZ2Compressor - imported by _bz2, bz2, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _bz2.BZ2Decompressor - imported by _bz2, bz2, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _bz2.BZ2Compressor - imported by _bz2, bz2, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named grp.getgrnam - imported by grp, shutil, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _sysconfigdata_dm - imported by _sysconfigdata, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _sysconfigdata.build_time_vars - imported by _sysconfigdata, sysconfig, distutils.sysconfig, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named binascii.a2b_qp - imported by binascii, quopri, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named binascii.b2a_qp - imported by binascii, quopri, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named binascii.a2b_base64 - imported by binascii, email.base64mime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named binascii.b2a_base64 - imported by binascii, email.base64mime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _lzma._encode_filter_properties - imported by _lzma, lzma, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named binascii.a2b_base64 - imported by binascii, email.base64mime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _lzma._decode_filter_properties - imported by _lzma, lzma, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _lzma._encode_filter_properties - imported by _lzma, lzma, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named pwd.getpwnam - imported by pwd, shutil, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named socket.SOCK_STREAM - imported by socket, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named socket.AF_INET - imported by socket, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named socket.SO_TYPE - imported by socket, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named socket.SOL_SOCKET - imported by socket, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named builtins.str - imported by builtins, locale, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _functools.reduce - imported by _functools, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _functools.cmp_to_key - imported by _functools, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _functools.partial - imported by _functools, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posix._exit - imported by posix, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named os.urandom - imported by os, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posix._have_functions - imported by posix, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named nt - imported by shutil, os, ntpath, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named nt._exit - imported by nt, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named nt._getvolumepathname - imported by nt, ntpath, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named collections.ChainMap - imported by collections, string, configparser, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named nt._getfullpathname - imported by nt, ntpath, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named nt._getfinalpathname - imported by nt, ntpath, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named nt._isdir - imported by nt, ntpath, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named nt._have_functions - imported by nt, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named nt - imported by os, ntpath, shutil, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named msvcrt - imported by subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py, getpass
-missing module named _winapi - imported by subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.e - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.exp - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.ceil - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.pi - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.log - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.sqrt - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.sin - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.cos - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named math.acos - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named sys.modules - imported by sys, dummy_threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _dummy_threading - imported by dummy_threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _dummy_threading.__all__ - imported by _dummy_threading, dummy_threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named dummy_threading.RLock - imported by dummy_threading, bz2, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _winapi.STD_INPUT_HANDLE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _winapi.CREATE_NEW_PROCESS_GROUP - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _winapi.STD_OUTPUT_HANDLE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _winapi.STARTF_USESTDHANDLES - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _winapi.STARTF_USESHOWWINDOW - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _winapi.STD_ERROR_HANDLE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _winapi.CREATE_NEW_CONSOLE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _winapi.SW_HIDE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named pwd.getpwnam - imported by pwd, shutil, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named socket.AF_INET - imported by socket, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named socket.SOCK_STREAM - imported by socket, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named socket.SO_TYPE - imported by socket, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named socket.SOL_SOCKET - imported by socket, ssl, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named posixpath.commonprefix - imported by posixpath, unittest.util, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named ce - imported by os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named ce._exit - imported by ce, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named ce._have_functions - imported by ce, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.abspath - imported by posixpath, shutil, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.realpath - imported by posixpath, sysconfig, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.devnull - imported by posixpath, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.pathsep - imported by posixpath, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.sep - imported by posixpath, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.curdir - imported by posixpath, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.extsep - imported by posixpath, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.defpath - imported by posixpath, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.pardir - imported by posixpath, sysconfig, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named posixpath.altsep - imported by posixpath, os, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _warnings._defaultaction - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _warnings._onceregistry - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _warnings.warn_explicit - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _warnings.warn - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _warnings.filters - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _warnings._filters_mutated - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named time.monotonic - imported by time, subprocess, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named time.time - imported by time, subprocess, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named threading.RLock - imported by threading, _threading_local, bz2, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named threading.current_thread - imported by threading, _threading_local, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _thread.RLock - imported by _thread, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _thread.get_ident - imported by _thread, reprlib, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _thread.allocate_lock - imported by _thread, _strptime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _collections.defaultdict - imported by _collections, collections, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _collections._count_elements - imported by _collections, collections, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named itertools.count - imported by itertools, heapq, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named itertools.islice - imported by itertools, heapq, threading, reprlib, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _collections.deque - imported by _collections, collections, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named collections.deque - imported by collections, ast, contextlib, shlex, threading, pydoc, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _thread.stack_size - imported by _thread, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _thread._local - imported by _thread, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named threading.current_thread - imported by threading, _threading_local, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named threading.RLock - imported by threading, _threading_local, bz2, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named msvcrt - imported by subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py, getpass
+missing module named _winapi - imported by subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named collections.namedtuple - imported by collections, functools, difflib, inspect, selectors, urllib.parse, ssl, unittest.util, doctest, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.log - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.e - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.exp - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.pi - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.ceil - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.acos - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.sin - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.sqrt - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named math.cos - imported by math, random, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named sys.modules - imported by sys, dummy_threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named itertools.islice - imported by itertools, heapq, reprlib, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named itertools.tee - imported by itertools, heapq, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named itertools.count - imported by itertools, heapq, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named itertools.starmap - imported by itertools, collections, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named itertools.chain - imported by itertools, heapq, tokenize, collections, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named itertools.repeat - imported by itertools, tokenize, collections, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named copy.deepcopy - imported by copy, email.generator, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _weakref.ReferenceType - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _weakref.getweakrefcount - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _weakref.ref - imported by _weakref, _weakrefset, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _weakref.CallableProxyType - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _weakref.ProxyType - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _weakref.proxy - imported by _weakref, weakref, collections, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _weakref.getweakrefs - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named weakref.WeakKeyDictionary - imported by weakref, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named weakref.ref - imported by weakref, _threading_local, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named org - imported by copy, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named org.PyStringMap - imported by org, copy, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _functools.reduce - imported by _functools, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named collections.namedtuple - imported by collections, functools, selectors, difflib, inspect, urllib.parse, ssl, unittest.util, doctest, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _weakref.proxy - imported by _weakref, weakref, collections, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _weakref.ref - imported by _weakref, _weakrefset, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _weakref.getweakrefcount - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _weakref.getweakrefs - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _weakref.ProxyType - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _weakref.CallableProxyType - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _weakref.ReferenceType - imported by _weakref, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named weakref.ref - imported by weakref, _threading_local, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named copy.deepcopy - imported by copy, email.generator, weakref, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named weakref.WeakKeyDictionary - imported by weakref, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _thread.allocate_lock - imported by _thread, _strptime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _thread.stack_size - imported by _thread, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _thread._local - imported by _thread, threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _thread.get_ident - imported by _thread, reprlib, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _thread.RLock - imported by _thread, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _functools.cmp_to_key - imported by _functools, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _functools.partial - imported by _functools, functools, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _struct._clearcache - imported by _struct, struct, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named _struct.__doc__ - imported by _struct, struct, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named errno.ENOENT - imported by errno, gettext, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
 missing module named builtins.abs - imported by builtins, operator, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named builtins.str - imported by builtins, locale, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _warnings._onceregistry - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _warnings.warn - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _warnings._filters_mutated - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _warnings.filters - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _warnings._defaultaction - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _warnings.warn_explicit - imported by _warnings, warnings, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _sre.MAXREPEAT - imported by _sre, sre_constants, sre_parse, sre_compile, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named unicodedata.ucd_3_2_0 - imported by unicodedata, stringprep, encodings.idna, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.BlockingIOError - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.BufferedRandom - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.FileIO - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.IncrementalNewlineDecoder - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.open - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.TextIOWrapper - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.BufferedWriter - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.BytesIO - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.UnsupportedOperation - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.BufferedRWPair - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.DEFAULT_BUFFER_SIZE - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.BufferedReader - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
-missing module named _io.StringIO - imported by _io, io, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _operator.__doc__ - imported by _operator, operator, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _dummy_thread.allocate_lock - imported by _dummy_thread, _strptime, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _dummy_threading - imported by dummy_threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _dummy_threading.__all__ - imported by _dummy_threading, dummy_threading, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named dummy_threading.RLock - imported by dummy_threading, bz2, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _winapi.STD_INPUT_HANDLE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _winapi.STD_ERROR_HANDLE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _winapi.CREATE_NEW_PROCESS_GROUP - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _winapi.SW_HIDE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _winapi.STD_OUTPUT_HANDLE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _winapi.STARTF_USESTDHANDLES - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _winapi.STARTF_USESHOWWINDOW - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
+missing module named _winapi.CREATE_NEW_CONSOLE - imported by _winapi, subprocess, /media/calvin/Data/Calvin/Coding/Python/Projects/Deep in the Caverns/game.py
