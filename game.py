@@ -39,12 +39,15 @@ Beta 0.6.1 - Fixed mapg() error
 Beta 0.6.2 - Fixed error that happened when you pressed something other than "m" or "q" in Enemy.act()
 Beta 0.6.3 - Moved dialogue and maps to world.py
 Beta 0.6.4 - Added accuracy variable to weapons
+Beta 0.6.5 - Included music (2 soundtracks)
 """
 import player, sys
 from enemies import *
 from world import *
 from items import *
 from interactives import *
+from pygame import mixer # Load the required library
+
 me=player.Player(0,0)
 
 helplist="""
@@ -75,6 +78,10 @@ win_statement = """
 #******YOU WIN******#
 #*******************#
 """
+mixer.init()
+mixer.music.load('./resources/strack1.mp3')
+mixer.music.play()
+
 
 def mapg(l):
 	tmp = l
@@ -245,14 +252,17 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 				print('Item added to inventory')
 		if grid[me.y][me.x].name in interlist:
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
-
+		#music
+		if mixer.music.get_busy() == False:
+			mixer.music.load('./resources/strack2.mp3')
+			mixer.music.play()
+			
 		if me.x == pasx and me.y == pasy:
-			print("-"*60)
+			print("-"*80)
 			me.hp = 100
 			me.x = 0
 			me.y = 0
 			Adventure2()
-			
 			
 def Adventure1():
 	#print('In the Caverns has been started.\n')
