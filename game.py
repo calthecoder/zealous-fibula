@@ -78,10 +78,14 @@ win_statement = """
 #******YOU WIN******#
 #*******************#
 """
-mixer.init()
-mixer.music.load('./resources/strack1.mp3')
-mixer.music.play()
-
+try:
+	mixer.init()
+	mixer.music.load('resources/strack1.ogg')
+	mixer.music.play()
+	music = True
+except:
+	print("Music not compatible")
+	music = False
 
 def mapg(l):
 	tmp = l
@@ -253,8 +257,8 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 		if grid[me.y][me.x].name in interlist:
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
 		#music
-		if mixer.music.get_busy() == False:
-			mixer.music.load('./resources/strack2.mp3')
+		if mixer.music.get_busy() == False and musc == True:
+			mixer.music.load('resources/strack2.ogg')
 			mixer.music.play()
 			
 		if me.x == pasx and me.y == pasy:
