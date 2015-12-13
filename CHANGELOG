@@ -36,3 +36,4 @@ Beta 0.5.9 - Removed HumanInt class
 Beta 0.6.1 - Fixed mapg() error
 Beta 0.6.2 - Fixed error that happened when you pressed something other than "m" or "q" in Enemy.act()
 Beta 0.6.3 - Moved dialogue and maps to world.py
+Beta 0.6.4 - Added accuracy variable to weapons

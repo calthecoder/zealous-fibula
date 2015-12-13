@@ -37,11 +37,12 @@ class Enemy:
         #BATTLE TIME!! for 10 secs
         print("Battle starting...\n")
         sleep(5)
-        if self.hp>p_obj.weapon.dex*p_obj.weapon.damage:
+        rand = random.randint(1,p_obj.weapon.accuracy)
+        if self.hp>p_obj.weapon.dex*p_obj.weapon.damage and rand != p_obj.weapon.accuracy:
                 print("*****************The "+self.name+" attacks you!*****************\n*****************He wins!*****************\n\n")
                 ret = 0
                 sys.exit()
-        elif self.hp <=p_obj.weapon.dex*p_obj.weapon.damage:
+        else:
                 print("*****************The "+self.name+" attacks you!*****************\n*****************He loses!*****************\n\n")
                 #include a function to turn the enemy into a bspace that says something dead is on the floor
                 ret -= (self.hp/3)

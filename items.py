@@ -17,10 +17,11 @@ class Item():
 		return passed
 
 class Weapon(Item):
-	def __init__(self, name, description, value, damage, pview, dex): #dextrous = how many time it can be swung in a ten second battle
+	def __init__(self, name, description, value, damage, pview, dex, accuracy): #dextrous = how many time it can be swung in a ten second battle
 		
 		self.damage = damage
 		self.dex = dex
+		self.accuracy = accuracy
 		super().__init__(name, description, value, pview)
 	"""
 	def __str__(self):
@@ -36,7 +37,8 @@ class Rock(Weapon):
 						value=5,
 						damage=10,
 						pview='a usless rock in the corner of the room.',
-						dex=6)
+						dex=6,
+						accuracy=3)#higher is good
 
 
 class Dagger(Weapon):
@@ -48,7 +50,8 @@ class Dagger(Weapon):
 						value=20,
 						damage=24,
 						pview='a sharp, rusty dagger lying at your feet.',
-						dex=4)
+						dex=4,
+						accuracy=5)
 		
 class Sword(Weapon):
 	def __init__(self,y,x):
@@ -59,7 +62,8 @@ class Sword(Weapon):
 						value=55,
 						damage=37,
 						pview='a long broadsword with a bland handle.',
-						dex=4)
+						dex=4,
+						accuracy=5)
 class Rapier(Weapon):
 	def __init__(self,y,x):
 		self.x = x
@@ -67,9 +71,10 @@ class Rapier(Weapon):
 		super().__init__(name="Rapier",
 						description="A long, thin sword. Very manuverable.",
 						value=75,
-						damage=30,
+						damage=20,
 						pview='a long, thin rapier with an elaborate blade design.',
-						dex=6)
+						dex=6,
+						accuracy=6)
 class Broadsword(Weapon):
 	def __init__(self,y,x):
 		self.x = x
@@ -77,9 +82,10 @@ class Broadsword(Weapon):
 		super().__init__(name="Broadsword",
 						description="A wide sword. Heavy, but gives much damage.",
 						value=87,
-						damage=50,
+						damage=70,
 						pview='a wide, heavy sword.',
-						dex=3)
+						dex=3,
+						accuracy=5)
 class Gold(Item):
 	def __init__(self, amt, y,x):
 		self.amt = amt

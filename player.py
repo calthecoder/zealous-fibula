@@ -9,7 +9,7 @@ class Player:
 		self.weapon = Dagger(self.y,self.x) #(0,0) placeholders
 		self.invent = []
 		self.wallet = 0
-
+		self.skill = 0 #increases by 2 each time a monster is killed
 	def printHP(self):
 		print("Health Points: "+str(self.hp))
 	
