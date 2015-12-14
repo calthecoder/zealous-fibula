@@ -78,14 +78,15 @@ win_statement = """
 #******YOU WIN******#
 #*******************#
 """
+musc = False
 try:
 	mixer.init()
 	mixer.music.load('resources/strack1.ogg')
 	mixer.music.play()
-	music = True
+	musc = True
 except:
 	print("Music not compatible")
-	music = False
+	musc = False
 
 def mapg(l):
 	tmp = l
