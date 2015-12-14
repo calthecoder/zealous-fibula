@@ -21,7 +21,7 @@ grid2 = [
 	[bspace(0,0),'',bspace(0,2)],
 	[Goblin(1,0),bspace2(1,1),''],
 	[GiantSpider(2,0),Ogre(2,1),bspace4(2,2),'','','','',Gold(200,2,6)], #win spot
-	['',bspace(3,1),'','',Dragon(3,4),'',Goblin(3,6)],
+	['',bspace(3,1),'','',Dragon(3,4),'',Goblin(3,6),bspace(3,7)],
 	['',bspace2(4,1),'','',bspace3(4,4),bspace4(4,5),bspace2(4,6)],
 	[bspace(5,0),bspace4(5,1),Goblin(5,2),bspace(5,3),Ogre(5,4)],
 	[bspace3(6,0),'',''],
