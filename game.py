@@ -40,6 +40,7 @@ Beta 0.6.2 - Fixed error that happened when you pressed something other than "m"
 Beta 0.6.3 - Moved dialogue and maps to world.py
 Beta 0.6.4 - Added accuracy variable to weapons
 Beta 0.6.5 - Included music (2 soundtracks)
+Beta 0.6.6 - Added Inverted control option
 """
 import player, sys
 from enemies import *
@@ -71,7 +72,7 @@ Keylist:
 	hp = health
 	quit = quit
 """
-
+yp, ym = 1, -1
 
 win_statement = """
 #*******************#
@@ -164,22 +165,22 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
-			me.y+=1
+			me.y+=yp
 			try:
 				print('You walk forward and see '+grid[me.y][me.x].pview, end='')			
 			except:
-				me.y-=1
+				me.y+=ym
 				print("Bonk! You can't go that way.")
 		elif i == 's' or i == 'S':
-			me.y-=1
+			me.y+=ym
 			try:
 				if me.y>=0:
 					print('You take a few steps backward and turn around. You see '+grid[me.y][me.x].pview, end='')				
 				else:
-					me.y+=1
+					me.y+=yp
 					print("Bonk! You can't go that way!")
 			except:
-				me.y+=1
+				me.y+=yp
 				print("Bonk! You can't go that way.")
 		elif i == 'd' or i == 'D':
 			me.x+=1
@@ -280,4 +281,10 @@ def Adventure2():
 def startScreen():
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
 	Adventure1()
+
+inp = input('Inverted controls? (Y,n) ')
+if inp == 'Y' or inp == 'y':
+	yp, ym = 1, -1
+else:
+	yp, ym = -1, 1
 startScreen()
