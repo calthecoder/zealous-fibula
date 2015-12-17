@@ -38,3 +38,4 @@ Beta 0.6.2 - Fixed error that happened when you pressed something other than "m"
 Beta 0.6.3 - Moved dialogue and maps to world.py
 Beta 0.6.4 - Added accuracy variable to weapons
 Beta 0.6.5 - Included music (2 soundtracks)
+Beta 0.6.6 - Added more music and sound effects
