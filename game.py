@@ -41,13 +41,13 @@ Beta 0.6.3 - Moved dialogue and maps to world.py
 Beta 0.6.4 - Added accuracy variable to weapons
 Beta 0.6.5 - Included music (2 soundtracks)
 Beta 0.6.6 - Added Inverted control option
+Beta 0.6.7 - Added more music and sound effects
 """
 import player, sys
 from enemies import *
 from world import *
 from items import *
 from interactives import *
-from pygame import mixer # Load the required library
 
 me=player.Player(0,0)
 
@@ -81,14 +81,45 @@ win_statement = """
 """
 musc = False
 try:
+	print('Loading music...')
+	from pygame import mixer # Load the required library
 	mixer.init()
-	mixer.music.load('resources/strack1.ogg')
-	mixer.music.play()
+	m_chan = mixer.Channel(0)
+	s_chan = mixer.Channel(1)
+	seffect1 = mixer.Sound('resources/seffect1.ogg')
+	seffect2 = mixer.Sound('resources/seffect2.ogg')
 	musc = True
 except:
 	print("Music not compatible")
 	musc = False
 
+def queueMus():
+	strack1 = mixer.Sound('resources/A Glimmer in the North.ogg')
+	strack2 = mixer.Sound('resources/strack2.ogg')
+	strack3 = mixer.Sound('resources/Down Down to Goblin-town.ogg')
+	strack4 = mixer.Sound('resources/Far Ahead the Road Has Gone.ogg')
+	strack5 = mixer.Sound('resources/Hammerhand.ogg')
+	strack6 = mixer.Sound('resources/Lament for Oakenshield.ogg')
+	strack7 = mixer.Sound('resources/Oakenshield.ogg')
+	strack8 = mixer.Sound('resources/Shadows of Angmar.ogg')
+	strack9 = mixer.Sound('resources/The Creeping Gloom.ogg')
+	strack10 = mixer.Sound('resources/The Ice Bay.ogg')
+	strack11 = mixer.Sound('resources/The Road to War.ogg')
+	strack12 = mixer.Sound('resources/Where Will Wants Not.ogg')
+	m_chan.queue(strack1)
+	m_chan.queue(strack2)
+	m_chan.queue(strack3)
+	m_chan.queue(strack4)
+	m_chan.queue(strack5)
+	m_chan.queue(strack6)
+	m_chan.queue(strack7)
+	m_chan.queue(strack8)
+	m_chan.queue(strack9)
+	m_chan.queue(strack10)
+	m_chan.queue(strack11)
+	m_chan.queue(strack12)
+	
+queueMus()
 def mapg(l):
 	tmp = l
 	print('')
@@ -245,8 +276,12 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 		if me.hp<=0:
 			break
 		
-		if grid[me.y][me.x].name in enemylist:#!= 'bspace':		
-			me.hp = atthandle(grid,me.x,me.y,me)		
+		if grid[me.y][me.x].name in enemylist:#!= 'bspace':
+			m_chan.pause()
+			s_chan.play(seffect2)
+			me.hp = atthandle(grid,me.x,me.y,me)
+			s_chan.stop()
+			m_chan.unpause()
 		elif grid[me.y][me.x].name in itemlist:
 			inp = input(' Pick up? (Y/n) ')
 			if inp == 'Y' or inp == 'y':
@@ -259,9 +294,8 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 		if grid[me.y][me.x].name in interlist:
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
 		#music
-		if mixer.music.get_busy() == False and musc == True:
-			mixer.music.load('resources/strack2.ogg')
-			mixer.music.play()
+		if m_chan.get_busy() == False and musc == True:
+			queueMus()
 			
 		if me.x == pasx and me.y == pasy:
 			print("-"*80)
