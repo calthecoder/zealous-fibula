@@ -42,8 +42,9 @@ Beta 0.6.4 - Added accuracy variable to weapons
 Beta 0.6.5 - Included music (2 soundtracks)
 Beta 0.6.6 - Added Inverted control option
 Beta 0.6.7 - Added more music and sound effects
+Beta 0.6.8 - Fixed pyinstaller music problem
 """
-import player, sys
+import player, sys, random
 from enemies import *
 from world import *
 from items import *
@@ -81,12 +82,42 @@ win_statement = """
 """
 musc = False
 try:
+	print('Loading music...')
 	from pygame import mixer # Load the required library
 	mixer.init()
 	m_chan = mixer.Channel(0)
 	s_chan = mixer.Channel(1)
-	seffect1 = mixer.Sound('resources/seffect1.ogg')
-	seffect2 = mixer.Sound('resources/seffect2.ogg')
+	if sys.platform.startswith('darwin'):
+		seffect1 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/seffect1.ogg')
+		seffect2 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/seffect2.ogg')
+		strack1 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/A Glimmer in the North.ogg')
+		strack2 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/strack2.ogg')
+		strack3 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Down Down to Goblin-town.ogg')
+		strack4 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Far Ahead the Road Has Gone.ogg')
+		strack5 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Hammerhand.ogg')
+		strack6 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Lament for Oakenshield.ogg')
+		strack7 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Oakenshield.ogg')
+		strack8 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Shadows of Angmar.ogg')
+		strack9 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/The Creeping Gloom.ogg')
+		strack10 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/The Ice Bay.ogg')
+		strack11 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/The Road to War.ogg')
+		strack12 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Where Will Wants Not.ogg')
+	else:
+		seffect1 = mixer.Sound('resources/seffect1.ogg')
+		seffect2 = mixer.Sound('resources/seffect2.ogg')
+		strack1 = mixer.Sound('resources/A Glimmer in the North.ogg')
+		strack2 = mixer.Sound('resources/strack2.ogg')
+		strack3 = mixer.Sound('resources/Down Down to Goblin-town.ogg')
+		strack4 = mixer.Sound('resources/Far Ahead the Road Has Gone.ogg')
+		strack5 = mixer.Sound('resources/Hammerhand.ogg')
+		strack6 = mixer.Sound('resources/Lament for Oakenshield.ogg')
+		strack7 = mixer.Sound('resources/Oakenshield.ogg')
+		strack8 = mixer.Sound('resources/Shadows of Angmar.ogg')
+		strack9 = mixer.Sound('resources/The Creeping Gloom.ogg')
+		strack10 = mixer.Sound('resources/The Ice Bay.ogg')
+		strack11 = mixer.Sound('resources/The Road to War.ogg')
+		strack12 = mixer.Sound('resources/Where Will Wants Not.ogg')
+	playlist = [strack1,strack2,strack3,strack4,strack5,strack6,strack7,strack8,strack9,strack10,strack11,strack12]
 	musc = True
 except:
 	print("Music not compatible")
@@ -164,7 +195,7 @@ def store():
 	else:
 		print('That is not a valid item')
 	
-def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
+def keyHandle(grid, pasx, pasy,next_lev): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
@@ -270,43 +301,30 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
 		#music
 		if m_chan.get_busy() == False and musc == True:
-			m_chan.play(playlist.pop())
+			randnum = random.randint(0,11)
+			m_chan.play(playlist[randnum])
 			
 		if me.x == pasx and me.y == pasy:
 			print("-"*80)
 			me.hp = 100
 			me.x = 0
 			me.y = 0
-			Adventure2()
+			if next_lev == 2:
+				Adventure2()
 			
 def Adventure1():
 	#print('In the Caverns has been started.\n')
 	print(before_grid1)
-	keyHandle(grid1,0,2)
+	keyHandle(grid1,0,2,2)
 def Adventure2():
 	#print('A realllly hard maze has been started.\n')
 	print(before_grid2)
-	keyHandle(grid2,2,6)
+	keyHandle(grid2,2,6,3)
 def startScreen():
+	randnum = random.randint(0,11)
+	m_chan.play(playlist[randnum])
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
 	Adventure1()
-
-if musc == True:
-	print('Loading music...')
-	strack1 = mixer.Sound('resources/A Glimmer in the North.ogg')
-	strack2 = mixer.Sound('resources/strack2.ogg')
-	strack3 = mixer.Sound('resources/Down Down to Goblin-town.ogg')
-	strack4 = mixer.Sound('resources/Far Ahead the Road Has Gone.ogg')
-	strack5 = mixer.Sound('resources/Hammerhand.ogg')
-	strack6 = mixer.Sound('resources/Lament for Oakenshield.ogg')
-	strack7 = mixer.Sound('resources/Oakenshield.ogg')
-	strack8 = mixer.Sound('resources/Shadows of Angmar.ogg')
-	strack9 = mixer.Sound('resources/The Creeping Gloom.ogg')
-	strack10 = mixer.Sound('resources/The Ice Bay.ogg')
-	strack11 = mixer.Sound('resources/The Road to War.ogg')
-	strack12 = mixer.Sound('resources/Where Will Wants Not.ogg')
-	m_chan.play(strack1)
-	playlist = [strack1,strack2,strack3,strack4,strack5,strack6,strack7,strack8,strack9,strack10,strack11,strack12]
 	
 inp = input('Inverted controls? (Y,n) ')
 if inp == 'Y' or inp == 'y':
