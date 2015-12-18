@@ -81,7 +81,6 @@ win_statement = """
 """
 musc = False
 try:
-	print('Loading music...')
 	from pygame import mixer # Load the required library
 	mixer.init()
 	m_chan = mixer.Channel(0)
@@ -93,33 +92,6 @@ except:
 	print("Music not compatible")
 	musc = False
 
-def queueMus():
-	strack1 = mixer.Sound('resources/A Glimmer in the North.ogg')
-	strack2 = mixer.Sound('resources/strack2.ogg')
-	strack3 = mixer.Sound('resources/Down Down to Goblin-town.ogg')
-	strack4 = mixer.Sound('resources/Far Ahead the Road Has Gone.ogg')
-	strack5 = mixer.Sound('resources/Hammerhand.ogg')
-	strack6 = mixer.Sound('resources/Lament for Oakenshield.ogg')
-	strack7 = mixer.Sound('resources/Oakenshield.ogg')
-	strack8 = mixer.Sound('resources/Shadows of Angmar.ogg')
-	strack9 = mixer.Sound('resources/The Creeping Gloom.ogg')
-	strack10 = mixer.Sound('resources/The Ice Bay.ogg')
-	strack11 = mixer.Sound('resources/The Road to War.ogg')
-	strack12 = mixer.Sound('resources/Where Will Wants Not.ogg')
-	m_chan.queue(strack1)
-	m_chan.queue(strack2)
-	m_chan.queue(strack3)
-	m_chan.queue(strack4)
-	m_chan.queue(strack5)
-	m_chan.queue(strack6)
-	m_chan.queue(strack7)
-	m_chan.queue(strack8)
-	m_chan.queue(strack9)
-	m_chan.queue(strack10)
-	m_chan.queue(strack11)
-	m_chan.queue(strack12)
-	
-queueMus()
 def mapg(l):
 	tmp = l
 	print('')
@@ -277,11 +249,14 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			break
 		
 		if grid[me.y][me.x].name in enemylist:#!= 'bspace':
-			m_chan.pause()
-			s_chan.play(seffect2)
-			me.hp = atthandle(grid,me.x,me.y,me)
-			s_chan.stop()
-			m_chan.unpause()
+			if musc == True:
+				m_chan.pause()
+				s_chan.play(seffect2)
+				me.hp = atthandle(grid,me.x,me.y,me)
+				s_chan.stop()
+				m_chan.unpause()
+			else:
+				me.hp = atthandle(grid,me.x,me.y,me)
 		elif grid[me.y][me.x].name in itemlist:
 			inp = input(' Pick up? (Y/n) ')
 			if inp == 'Y' or inp == 'y':
@@ -295,7 +270,7 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
 		#music
 		if m_chan.get_busy() == False and musc == True:
-			queueMus()
+			m_chan.play(playlist.pop())
 			
 		if me.x == pasx and me.y == pasy:
 			print("-"*80)
@@ -316,9 +291,27 @@ def startScreen():
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
 	Adventure1()
 
+if musc == True:
+	print('Loading music...')
+	strack1 = mixer.Sound('resources/A Glimmer in the North.ogg')
+	strack2 = mixer.Sound('resources/strack2.ogg')
+	strack3 = mixer.Sound('resources/Down Down to Goblin-town.ogg')
+	strack4 = mixer.Sound('resources/Far Ahead the Road Has Gone.ogg')
+	strack5 = mixer.Sound('resources/Hammerhand.ogg')
+	strack6 = mixer.Sound('resources/Lament for Oakenshield.ogg')
+	strack7 = mixer.Sound('resources/Oakenshield.ogg')
+	strack8 = mixer.Sound('resources/Shadows of Angmar.ogg')
+	strack9 = mixer.Sound('resources/The Creeping Gloom.ogg')
+	strack10 = mixer.Sound('resources/The Ice Bay.ogg')
+	strack11 = mixer.Sound('resources/The Road to War.ogg')
+	strack12 = mixer.Sound('resources/Where Will Wants Not.ogg')
+	m_chan.play(strack1)
+	playlist = [strack1,strack2,strack3,strack4,strack5,strack6,strack7,strack8,strack9,strack10,strack11,strack12]
+	
 inp = input('Inverted controls? (Y,n) ')
 if inp == 'Y' or inp == 'y':
 	yp, ym = 1, -1
 else:
 	yp, ym = -1, 1
+
 startScreen()
