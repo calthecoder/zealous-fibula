@@ -25,4 +25,4 @@ exe = EXE(pyz,
           debug=False,
           strip=None,
           upx=True,
-          console=True , icon='maze_icn.png')
+          console=True , icon='/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/maze_icn.png')
