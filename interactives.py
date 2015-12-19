@@ -55,3 +55,34 @@ class Blacksmith(Interactive):
 					print('You do not have enough Gold.')
 			return wallet
 				#dchoices is a 2d list to show what the user can answer with
+
+class Fletcher(Interactive):
+	def __init__(self, y, x):
+		self.y = y
+		self.x = x
+		self.tmp = [Bow_and_Arrow(-1,-1)]
+		super().__init__(name = 'Fletcher',
+						hp = 100,
+						description = 'A fletcher who also makes bows.',
+						pview = 'a Fletcher putting some feathers on arrows',
+						dialogue = ["Welcome to my shop. How can I help you?", "I can do that. Would you like to know more about that weapon?","Are you ready to purchase it?"],
+						dchoices = [["I'd like a new bow and arrow","Oh, I'm just passing by"],["Yes","No"],["Yes","No"]])
+	def act(self, invent,wallet): #may work
+		self.talk_loop(0,0)
+		inp = self.get_inp()
+		if inp == 0:
+			self.talk_loop(1,1)
+			wc = self.get_inp()
+			if inp == 0:
+				print(self.tmp[wc].name+'\n'+self.tmp[wc].description+'\n'+str(self.tmp[wc].value)+' Gold\nDamage: '+str(self.tmp[wc].damage)+'\nDex (how many times it can be swung each battle): '+str(self.tmp[wc].dex)+'\nAccuracy: '+str(self.tmp[wc].accuracy))
+			self.talk_loop(2,2)
+			inp = self.get_inp()
+			if inp == 0:
+				if wallet >= self.tmp[wc].value:
+					wallet -= selt.tmp[wc].value
+					invent.append(self.tmp[wc])
+					print("Here it is!")
+				else:
+					print('You do not have enough Gold.')
+			return wallet
+				#dchoices is a 2d list to show what the user can answer with

@@ -86,6 +86,17 @@ class Broadsword(Weapon):
 						pview='a wide, heavy sword.',
 						dex=3,
 						accuracy=5)
+class Bow_and_Arrow(Weapon):
+	def __init__(self,y,x):
+		self.x = x
+		self.y = y
+		super().__init__(name="Bow and Arrow",
+						description="A large longbow. Fast and gives alot of damage, but not too accurate.",
+						value=100,
+						damage=80,
+						pview='a longbow.',
+						dex=4,
+						accuracy=3)
 class Gold(Item):
 	def __init__(self, amt, y,x):
 		self.amt = amt

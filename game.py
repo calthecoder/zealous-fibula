@@ -43,6 +43,7 @@ Beta 0.6.5 - Included music (2 soundtracks)
 Beta 0.6.6 - Added Inverted control option
 Beta 0.6.7 - Added more music and sound effects
 Beta 0.6.8 - Fixed pyinstaller music problem
+Beta 0.6.9 - Added Fletcher
 """
 import player, sys, random
 from enemies import *
@@ -311,7 +312,16 @@ def keyHandle(grid, pasx, pasy,next_lev): #pasy and pasx = spot to win
 			me.y = 0
 			if next_lev == 2:
 				Adventure2()
-			
+			elif next_lev == 3:
+				Adventure2()
+			elif next_lev == 4:
+				Adventure2()
+			elif next_lev == 5:
+				Adventure2()
+			elif next_lev == 6:
+				Adventure2()
+			elif next_lev == 7:
+				Adventure2()
 def Adventure1():
 	#print('In the Caverns has been started.\n')
 	print(before_grid1)
@@ -319,7 +329,7 @@ def Adventure1():
 def Adventure2():
 	#print('A realllly hard maze has been started.\n')
 	print(before_grid2)
-	keyHandle(grid2,2,6,3)
+	keyHandle(grid2,2,7,3)
 def startScreen():
 	randnum = random.randint(0,11)
 	m_chan.play(playlist[randnum])
