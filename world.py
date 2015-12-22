@@ -2,6 +2,14 @@ from enemies import *
 from items import *
 from interactives import *
 
+village = [
+	[Fletcher(0,0),Road(0,1),Blacksmith(0,2)],
+	['',Road(1,1),''],
+	['',Road(2,1),''],
+	['',Road(3,1),''],
+	[Road(4,0),Road(4,1),Road(4,2)],
+	[Level1(5,0),Level2(5,1),Level3(5,2)]
+]
 grid1 = [
 	[bspace(0,0),Goblin(0,1),bspace(0,2)],
 	[Dragon(1,0),bspace2(1,1),Gold(21,1,2)],
@@ -43,8 +51,8 @@ but at least the bear can't get in.
 """
 before_grid2 = """
 Light! You see light! Bright rays of sunshine illuminate the cave where
-the Spider had been defeated. A long, spiral staircase winds up through the
-ceiling. You step over the dead Giant Spider and climb up the staircase.
-Soon, you reach the top. Your village is visible from the top of this hill.
-You walk to it.
+you stand. A long, spiral staircase winds up through the
+ceiling. You climb up the staircase. Soon, you reach the top.
+Your home is visible from the top of this hill. You begin to walk
+to it through the woods.
 """

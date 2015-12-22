@@ -1,6 +1,6 @@
 from items import *
 
-interlist = ['Blacksmith']
+interlist = ['Blacksmith','Fletcher']
 class Interactive():
 	def __init__(self, name, hp, description, pview, dialogue, dchoices):
 		self.name = name
@@ -26,13 +26,13 @@ class Blacksmith(Interactive):
 	def __init__(self, y, x):
 		self.y = y
 		self.x = x
-		self.tmp = [Rapier(-1,-1),Broadsword(-1,-1)]
+		self.tmp = [Rapier(-1,-1),Broadsword(-1,-1),Dagger(-1,-1),Sword(-1,-1)]
 		super().__init__(name = 'Blacksmith',
 						hp = 100,
 						description = 'An older, skilled Blacksmith.',
-						pview = 'a Blacksmith forging a new tool.',
+						pview = 'a Blacksmith forging a new tool.\n',
 						dialogue = ["Welcome to my smithy. How can I help you?", "I can do that. Which one would you like me to make?","Would you like to know more about that weapon?","Are you ready to purchase it?"],
-						dchoices = [["I'd like a new tool.","Oh, I'm just passing by"],["Rapier","Broadsword"],["Yes","No"],["Yes","No"]])
+						dchoices = [["I'd like a new tool.","Oh, I'm just passing by"],["Rapier","Broadsword","Dagger","Sword"],["Yes","No"],["Yes","No"]])
 
 	def act(self, invent,wallet): #may work
 		self.talk_loop(0,0)
@@ -64,7 +64,7 @@ class Fletcher(Interactive):
 		super().__init__(name = 'Fletcher',
 						hp = 100,
 						description = 'A fletcher who also makes bows.',
-						pview = 'a Fletcher putting some feathers on arrows',
+						pview = 'a Fletcher putting some feathers on arrows.\n',
 						dialogue = ["Welcome to my shop. How can I help you?", "I can do that. Would you like to know more about that weapon?","Are you ready to purchase it?"],
 						dchoices = [["I'd like a new bow and arrow","Oh, I'm just passing by"],["Yes","No"],["Yes","No"]])
 	def act(self, invent,wallet): #may work

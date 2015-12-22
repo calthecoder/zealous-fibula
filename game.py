@@ -44,6 +44,7 @@ Beta 0.6.6 - Added Inverted control option
 Beta 0.6.7 - Added more music and sound effects
 Beta 0.6.8 - Fixed pyinstaller music problem
 Beta 0.6.9 - Added Fletcher
+Beta 0.7.1 - Village is new "store"; can be visited after every level
 """
 import player, sys, random
 from enemies import *
@@ -74,8 +75,8 @@ Keylist:
 	hp = health
 	quit = quit
 """
-yp, ym = 1, -1
-
+yp, ym = 1, -1 #for inverted controls
+oldx, oldy = 0,0
 win_statement = """
 #*******************#
 #******YOU WIN******#
@@ -133,6 +134,8 @@ def mapg(l):
 		yr = 9
 	elif l == grid1:
 		yr = 12
+	elif l == village:
+		yr=6 #Don't Forget to change
 	for y in range(0,yr):
 		for x in range(0,len(tmp[y])):
 			try:
@@ -144,12 +147,14 @@ def mapg(l):
 					print('	x',end='')
 				elif tmp[y][x].name in itemlist:
 					print('	!',end='')
+				elif tmp[y][x].name == 'level':
+					print('	'+str(tmp[y][x].num),end='')
 				else:
 					print('	#',end='')
 			except:
 				print('	*', end='')
 		print('')
-	print('\nY = You\n+ = Live Monster\nx = Dead Monster\n! = Item\n# = Blank Space\n* = You cannot go here')
+	print('\nY = You\n+ = Live Monster\nx = Dead Monster\n! = Item\n# = Blank Space\nAny number = Level Gateway\n* = You cannot go here')
 	tmp[me.y][me.x] = old
 	
 def atthandle(l,x,y,playhp):
@@ -160,43 +165,16 @@ def switch(l,p1y,p1x,p2y,p2x):
 	old = l[p2y][p2x]
 	l[p2y][p2x] = l[p1y][p1x]
 	l[p1y][p1x] = old
-
-def store():
+"""
+def store(call):
+	global callfrom
 	dash = "-"*50
-	print('Welcome to the store. You can by weapons and other items here in exchange for gold.')
-	tmp = [Rock(-1,-1),Dagger(-1,-1),Sword(-1,-1)]
-	print(dash)
-	###
-	for i in range(0, len(tmp)):
-		print(tmp[i].name+'\n'+tmp[i].description+'\n'+str(tmp[i].value)+' Gold\nDamage: '+str(tmp[i].damage)+'\nDex (how many times it can be swung each battle): '+str(tmp[i].dex))
-		print(dash)
-	###
-	pick = input('Type the name of the item you would like to purchase: ')
-	if pick == tmp[0].name:
-		if me.wallet >= tmp[0].value:
-			me.invent.append(Rock(me.y,me.x))
-			me.wallet -= tmp[0].value
-			print('Item added to inventory')
-		else:
-			print('You do not have enough Gold')
-	elif pick == tmp[2].name:
-		if me.wallet >= tmp[2].value:
-			me.invent.append(Sword(me.y,me.x))
-			me.wallet -= tmp[2].value
-			print('Item added to inventory')
-		else:
-			print('You do not have enough Gold')
-	elif pick == tmp[1].name:
-		if me.wallet >= tmp[1].value:
-			me.invent.append(Dagger(me.y,me.x))
-			me.wallet -= tmp[1].value
-			print('Item added to inventory')
-		else:
-			print('You do not have enough Gold')
-	else:
-		print('That is not a valid item')
-	
-def keyHandle(grid, pasx, pasy,next_lev): #pasy and pasx = spot to win
+	print(dash+'\nIn the marketplace')
+	me.x,me.y = 0,0
+	callfrom = call
+	keyHandle(village,-1,-1,-1,'store')
+"""
+def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
@@ -266,8 +244,6 @@ def keyHandle(grid, pasx, pasy,next_lev): #pasy and pasx = spot to win
 			print('You: \n\nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon: '+me.weapon.name)
 		elif i == 'xy':
 			print('\nX: '+str(me.x)+'\nY: '+str(me.y))
-		elif i == 'store':
-			store()
 		elif i == 'wallet':
 			print(str(me.wallet)+' Gold')
 		elif i == 'quit':
@@ -298,8 +274,15 @@ def keyHandle(grid, pasx, pasy,next_lev): #pasy and pasx = spot to win
 					me.wallet += grid[me.y][me.x].amt
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
-		if grid[me.y][me.x].name in interlist:
+		elif grid[me.y][me.x].name in interlist:
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
+		elif grid[me.y][me.x].name == 'level':
+			print("-"*80)
+			if grid[me.y][me.x].num == 1:
+				Adventure1(0,0,True)
+			elif grid[me.y][me.x].num == 2:
+				Adventure2(0,0,True)
+				#add more for more levels
 		#music
 		if m_chan.get_busy() == False and musc == True:
 			randnum = random.randint(0,11)
@@ -310,31 +293,44 @@ def keyHandle(grid, pasx, pasy,next_lev): #pasy and pasx = spot to win
 			me.hp = 100
 			me.x = 0
 			me.y = 0
-			if next_lev == 2:
-				Adventure2()
-			elif next_lev == 3:
-				Adventure2()
-			elif next_lev == 4:
-				Adventure2()
-			elif next_lev == 5:
-				Adventure2()
-			elif next_lev == 6:
-				Adventure2()
-			elif next_lev == 7:
-				Adventure2()
-def Adventure1():
+			print("LEVEL BEAT! NEXT LEVEL UNLOCKED!")
+			print("-"*80)
+			i = input('Continue story? (Y/n)')
+			if i == 'Y' or i == 'y':
+				if next_lev == 2:
+					Adventure2(0,0,True)
+				elif next_lev == 3:
+					Adventure2(0,0,True)
+				elif next_lev == 4:
+					Adventure2(0,0,True)
+				elif next_lev == 5:
+					Adventure2(0,0,True)
+				elif next_lev == 6:
+					Adventure2(0,0,True)
+				elif next_lev == 7:
+					Adventure2(0,0,True)
+			else:
+				Village()
+def Adventure1(ox,oy,mess):
 	#print('In the Caverns has been started.\n')
-	print(before_grid1)
-	keyHandle(grid1,0,2,2)
-def Adventure2():
+	me.x, me.y = oldx, oldy
+	if mess == True:
+		print(before_grid1)
+	keyHandle(grid1,4,11,2,'adventure1')
+def Adventure2(ox,oy,mess):
+	me.x, me.y = oldx, oldy
 	#print('A realllly hard maze has been started.\n')
-	print(before_grid2)
-	keyHandle(grid2,2,7,3)
+	if mess == True:
+		print(before_grid2)
+	keyHandle(grid2,2,7,3,'adventure2')
+def Village():
+	me.x, me.y = 1, 0
+	keyHandle(village,-1,-1,-1,'village')
 def startScreen():
 	randnum = random.randint(0,11)
 	m_chan.play(playlist[randnum])
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
-	Adventure1()
+	Adventure1(0,0,True)
 	
 inp = input('Inverted controls? (Y,n) ')
 if inp == 'Y' or inp == 'y':

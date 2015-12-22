@@ -64,6 +64,15 @@ class Goblin(Enemy):
         self.x = x
         self.y = y
         
+class Orc(Enemy):
+    def __init__(self, y,x):
+        super().__init__(name='Orc',
+                         hp=75,
+                         description='A slightly eviler version of a Goblin.',
+                         pview='an ugly orc with a huge sword.')
+        self.x = x
+        self.y = y
+        
 class Ogre(Enemy):
     def __init__(self,y,x):
         super().__init__(name='Ogre',
@@ -134,3 +143,63 @@ class bspace5(Enemy): #for items that were picked up
                                  pview="a room that has no meaning or value; just empty.")
 		self.x = x
 		self.y = y
+class Road(Enemy):
+	def __init__(self,y,x):
+		super().__init__(name='bspace',
+                                 hp=-1000,
+                                 description='Part of a long road.', 
+                                 pview="another segment of the road you have been travelling on.")
+		self.x = x
+		self.y = y
+        
+##Level gateways
+class Level1(Enemy): #for items that were picked up
+	def __init__(self,y,x):
+		super().__init__(name='level',
+                                 hp=-1000,
+                                 description='Portal to Level 1.', 
+                                 pview="the gateway to Level 1.")
+		self.x = x
+		self.y = y
+		self.locked = False
+		self.num = 1
+class Level2(Enemy): #for items that were picked up
+	def __init__(self,y,x):
+		super().__init__(name='level',
+                                 hp=-1000,
+                                 description='Portal to Level 2.', 
+                                 pview="the gateway to Level 2.")
+		self.x = x
+		self.y = y
+		self.locked = True
+		self.num = 2
+class Level3(Enemy): #for items that were picked up
+	def __init__(self,y,x):
+		super().__init__(name='level',
+                                 hp=-1000,
+                                 description='Portal to Level 3.', 
+                                 pview="the gateway to Level 3.")
+		self.x = x
+		self.y = y
+		self.locked = True
+		self.num = 3
+class Level4(Enemy): #for items that were picked up
+	def __init__(self,y,x):
+		super().__init__(name='level',
+                                 hp=-1000,
+                                 description='Portal to Level 4.', 
+                                 pview="the gateway to Level 4.")
+		self.x = x
+		self.y = y
+		self.locked = True
+		self.num = 4
+class Level5(Enemy): #for items that were picked up
+	def __init__(self,y,x):
+		super().__init__(name='level',
+                                 hp=-1000,
+                                 description='Portal to Level 5.', 
+                                 pview="the gateway to Level 5.")
+		self.x = x
+		self.y = y
+		self.locked = True
+		self.num = 5
