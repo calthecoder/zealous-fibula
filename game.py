@@ -298,7 +298,8 @@ def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 			elif next_lev == 3:
 				village[5][2].locked = False#add more for more levels
 			print("LEVEL BEAT! NEXT LEVEL UNLOCKED!")
-			print("\n-"*80)
+			print("")
+			print("-"*80)
 			i = input('Continue story? (Y/n) ')
 			if i == 'Y' or i == 'y':
 				if next_lev == 2:
@@ -314,6 +315,7 @@ def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 				elif next_lev == 7:
 					Adventure2(0,0,True)
 			else:
+				print('In the Village')
 				Village()
 def Adventure1(ox,oy,mess):
 	#print('In the Caverns has been started.\n')
