@@ -278,9 +278,9 @@ def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
 		elif grid[me.y][me.x].name == 'level':
 			print("-"*80)
-			if grid[me.y][me.x].num == 1:
+			if grid[me.y][me.x].num == 1 and grid[me.y][me.x].locked == False:
 				Adventure1(0,0,True)
-			elif grid[me.y][me.x].num == 2:
+			elif grid[me.y][me.x].num == 2 and grid[me.y][me.x].locked == False:
 				Adventure2(0,0,True)
 				#add more for more levels
 		#music
@@ -293,9 +293,13 @@ def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 			me.hp = 100
 			me.x = 0
 			me.y = 0
+			if next_lev == 2:
+				village[5][1].locked = False
+			elif next_lev == 3:
+				village[5][2].locked = False#add more for more levels
 			print("LEVEL BEAT! NEXT LEVEL UNLOCKED!")
-			print("-"*80)
-			i = input('Continue story? (Y/n)')
+			print("\n-"*80)
+			i = input('Continue story? (Y/n) ')
 			if i == 'Y' or i == 'y':
 				if next_lev == 2:
 					Adventure2(0,0,True)
