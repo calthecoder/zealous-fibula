@@ -67,6 +67,6 @@ before_grid3 = """
 When you arrive at the your home village, there is nobody there. 
 Your home and the others homes are in flames. Your neighbors lie 
 dead on the ground. The assailants left tracks leading into the 
-mines near your town. You follow the tracks
-them in hopes of destroying their master.
+mines near your town. You follow the tracks in hopes of destroying
+them and their master.
 """

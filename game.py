@@ -46,6 +46,7 @@ Beta 0.6.8 - Fixed pyinstaller music problem
 Beta 0.6.9 - Added Fletcher
 Beta 0.7.1 - Village is new "store"; can be visited after every level
 Beta 0.7.2 - Added level 3
+Beta 0.7.3 - Fixed interactive problem
 """
 import player, sys, random
 from enemies import *
@@ -353,7 +354,7 @@ def Adventure3(ox,oy,mess):
 	#print('A realllly hard maze has been started.\n')
 	if mess == True:
 		print(before_grid3)
-	keyHandle(grid2,5,2,4,'adventure3')
+	keyHandle(grid3,5,2,4,'adventure3')
 def Village():
 	me.x, me.y = 1, 0
 	keyHandle(village,-1,-1,-1,'village')
@@ -361,8 +362,10 @@ def startScreen():
 	randnum = random.randint(0,11)
 	m_chan.play(playlist[randnum])
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n	Music: Turbine, Inc\n\nPress "h" for help\n')
-	#me.wallet = 300
-	Adventure1(0,0,True)
+	village[5][2].locked = False
+	me.wallet = 300
+	#Adventure1(0,0,True)
+	Village()
 	
 inp = input('Inverted controls? (Y,n) ')
 if inp == 'Y' or inp == 'y':

@@ -20,7 +20,8 @@ class Interactive():
 			inp = input('Answer (Type the number): ')
 			return int(inp)
 		except:
-			self.get_inp()
+			x = self.get_inp() #return needs to be here
+			return x
 
 class Blacksmith(Interactive):
 	def __init__(self, y, x):
@@ -34,7 +35,8 @@ class Blacksmith(Interactive):
 						dialogue = ["Welcome to my smithy. How can I help you?", "I can do that. Which one would you like me to make?","Would you like to know more about that weapon?","Are you ready to purchase it?"],
 						dchoices = [["I'd like a new tool.","Oh, I'm just passing by"],["Rapier","Broadsword","Dagger","Sword"],["Yes","No"],["Yes","No"]])
 
-	def act(self, invent,wallet): #may work
+	def act(self, invent,wall): #may work
+		wallet = wall
 		self.talk_loop(0,0)
 		inp = self.get_inp()
 		if inp == 0:
@@ -43,7 +45,7 @@ class Blacksmith(Interactive):
 			self.talk_loop(2,2)
 			inp = self.get_inp()
 			if inp == 0:
-				print(self.tmp[wc].name+'\n'+self.tmp[wc].description+'\n'+str(self.tmp[wc].value)+' Gold\nDamage: '+str(self.tmp[wc].damage)+'\nDex (how many times it can be swung each battle): '+str(self.tmp[wc].dex))
+				print(self.tmp[wc].name+'\n'+self.tmp[wc].description+'\n'+str(self.tmp[wc].value)+' Gold\nDamage: '+str(self.tmp[wc].damage)+'\nDex (how many times it can be swung each battle): '+str(self.tmp[wc].dex)+'\nAccuracy: '+str(self.tmp[wc].accuracy))
 			self.talk_loop(3,3)
 			inp = self.get_inp()
 			if inp == 0:
@@ -68,7 +70,8 @@ class Fletcher(Interactive):
 						pview = 'a Fletcher putting some feathers on arrows.\n',
 						dialogue = ["Welcome to my shop. How can I help you?", "I can do that. Would you like to know more about that weapon?","Are you ready to purchase it?"],
 						dchoices = [["I'd like a new bow and arrow","Oh, I'm just passing by"],["Yes","No"],["Yes","No"]])
-	def act(self, invent,wallet): #may work
+	def act(self, invent,wall): #may work
+		wallet = wall
 		self.talk_loop(0,0)
 		inp = self.get_inp()
 		if inp == 0:
