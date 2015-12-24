@@ -67,7 +67,7 @@ class Goblin(Enemy):
 class Orc(Enemy):
     def __init__(self, y,x):
         super().__init__(name='Orc',
-                         hp=75,
+                         hp=70,
                          description='A slightly eviler version of a Goblin.',
                          pview='an ugly orc with a huge sword.')
         self.x = x

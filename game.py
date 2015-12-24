@@ -45,13 +45,16 @@ Beta 0.6.7 - Added more music and sound effects
 Beta 0.6.8 - Fixed pyinstaller music problem
 Beta 0.6.9 - Added Fletcher
 Beta 0.7.1 - Village is new "store"; can be visited after every level
+Beta 0.7.2 - Added level 3
 """
 import player, sys, random
 from enemies import *
 from world import *
 from items import *
 from interactives import *
-
+######################################################
+#when more levels are added, edit lines 292, 314, 319#
+######################################################
 me=player.Player(0,0)
 
 helplist="""
@@ -69,7 +72,6 @@ Keylist:
 	h = help
 	p = player editor (change weapon, name...)
 	xy = displays coordinates
-	store = access the store
 	wallet = display your wallet
 	map = display map
 	hp = health
@@ -124,6 +126,18 @@ try:
 except:
 	print("Music not compatible")
 	musc = False
+	
+def save():
+	f = open('resources/save1.txt','r+')
+	f.write(str(me.x)+'\n')
+	f.write(str(me.y)+'\n')
+	f.write(me.name+'\n')
+	f.write(str(me.hp)+'\n')
+	f.write(me.weapon.name+'\n')
+	for l in range(0,len(me.invent)):
+		f.write(me.invent[l]+'\n')
+	f.write(str(me.wallet)+'\n')
+	f.write(str(me.skill))
 
 def mapg(l):
 	tmp = l
@@ -174,7 +188,7 @@ def store(call):
 	callfrom = call
 	keyHandle(village,-1,-1,-1,'store')
 """
-def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
+def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
@@ -277,11 +291,16 @@ def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 		elif grid[me.y][me.x].name in interlist:
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
 		elif grid[me.y][me.x].name == 'level':
+			print("")
 			print("-"*80)
 			if grid[me.y][me.x].num == 1 and grid[me.y][me.x].locked == False:
 				Adventure1(0,0,True)
 			elif grid[me.y][me.x].num == 2 and grid[me.y][me.x].locked == False:
 				Adventure2(0,0,True)
+			elif grid[me.y][me.x].num == 3 and grid[me.y][me.x].locked == False:
+				Adventure3(0,0,True)
+			else:
+				print("That level is locked")
 				#add more for more levels
 		#music
 		if m_chan.get_busy() == False and musc == True:
@@ -289,6 +308,7 @@ def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 			m_chan.play(playlist[randnum])
 			
 		if me.x == pasx and me.y == pasy:
+			print('')
 			print("-"*80)
 			me.hp = 100
 			me.x = 0
@@ -298,14 +318,13 @@ def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 			elif next_lev == 3:
 				village[5][2].locked = False#add more for more levels
 			print("LEVEL BEAT! NEXT LEVEL UNLOCKED!")
-			print("")
 			print("-"*80)
 			i = input('Continue story? (Y/n) ')
 			if i == 'Y' or i == 'y':
 				if next_lev == 2:
 					Adventure2(0,0,True)
 				elif next_lev == 3:
-					Adventure2(0,0,True)
+					Adventure3(0,0,True)
 				elif next_lev == 4:
 					Adventure2(0,0,True)
 				elif next_lev == 5:
@@ -322,20 +341,27 @@ def Adventure1(ox,oy,mess):
 	me.x, me.y = oldx, oldy
 	if mess == True:
 		print(before_grid1)
-	keyHandle(grid1,4,11,2,'adventure1')
+	keyHandle(grid1,11,4,2,'adventure1')
 def Adventure2(ox,oy,mess):
 	me.x, me.y = oldx, oldy
 	#print('A realllly hard maze has been started.\n')
 	if mess == True:
 		print(before_grid2)
 	keyHandle(grid2,2,7,3,'adventure2')
+def Adventure3(ox,oy,mess):
+	me.x, me.y = oldx, oldy
+	#print('A realllly hard maze has been started.\n')
+	if mess == True:
+		print(before_grid3)
+	keyHandle(grid2,5,2,4,'adventure3')
 def Village():
 	me.x, me.y = 1, 0
 	keyHandle(village,-1,-1,-1,'village')
 def startScreen():
 	randnum = random.randint(0,11)
 	m_chan.play(playlist[randnum])
-	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
+	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n	Music: Turbine, Inc\n\nPress "h" for help\n')
+	#me.wallet = 300
 	Adventure1(0,0,True)
 	
 inp = input('Inverted controls? (Y,n) ')

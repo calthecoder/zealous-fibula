@@ -28,14 +28,21 @@ grid1 = [
 grid2 = [
 	[bspace(0,0),'',bspace(0,2)],
 	[Goblin(1,0),bspace2(1,1),''],
-	[GiantSpider(2,0),Ogre(2,1),bspace4(2,2),'','','','',Gold(200,2,6)], #win spot
+	[GiantSpider(2,0),Ogre(2,1),bspace4(2,2),'','','','',Gold(200,2,7)], #win spot
 	['',bspace(3,1),'','',Dragon(3,4),'',Goblin(3,6),bspace(3,7)],
 	['',bspace2(4,1),'','',bspace3(4,4),bspace4(4,5),bspace2(4,6)],
-	[bspace(5,0),bspace4(5,1),Goblin(5,2),bspace(5,3),Ogre(5,4)],
+	[bspace(5,0),bspace4(5,1),Goblin(5,2),bspace(5,3),bspace3(5,4)],
 	[bspace3(6,0),'',''],
 	[bspace2(7,0),bspace(7,1),''],
 	['',Dragon(8,1),'']
 
+]
+grid3 = [
+	[bspace(0,0)],
+	[Orc(1,0),bspace4(1,1),'',Ogre(1,3)],
+	['',Goblin(2,1),bspace2(2,2),bspace3(2,3)],
+	['','',Ogre(3,2),bspace(3,3)],
+	['',Gold(30,4,1),GiantSpider(5,2)]
 ]
 before_grid1 = """
 It is an ordinary day as you take a quaint walk in the Sand Forest.
@@ -55,4 +62,11 @@ you stand. A long, spiral staircase winds up through the
 ceiling. You climb up the staircase. Soon, you reach the top.
 Your home is visible from the top of this hill. You begin to walk
 to it through the woods.
+"""
+before_grid3 = """
+When you arrive at the your home village, there is nobody there. 
+Your home and the others homes are in flames. Your neighbors lie 
+dead on the ground. The assailants left tracks leading into the 
+mines near your town. You follow the tracks
+them in hopes of destroying their master.
 """

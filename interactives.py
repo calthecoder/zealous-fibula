@@ -48,12 +48,13 @@ class Blacksmith(Interactive):
 			inp = self.get_inp()
 			if inp == 0:
 				if wallet >= self.tmp[wc].value:
-					wallet -= selt.tmp[wc].value
+					wallet -= self.tmp[wc].value
 					invent.append(self.tmp[wc])
 					print("Here it is!")
+					return wallet
 				else:
 					print('You do not have enough Gold.')
-			return wallet
+			#return wallet
 				#dchoices is a 2d list to show what the user can answer with
 
 class Fletcher(Interactive):
@@ -78,11 +79,13 @@ class Fletcher(Interactive):
 			self.talk_loop(2,2)
 			inp = self.get_inp()
 			if inp == 0:
+				#print(str(wallet))
 				if wallet >= self.tmp[wc].value:
-					wallet -= selt.tmp[wc].value
+					wallet -= self.tmp[wc].value
 					invent.append(self.tmp[wc])
 					print("Here it is!")
+					return wallet
 				else:
 					print('You do not have enough Gold.')
-			return wallet
+			#return wallet
 				#dchoices is a 2d list to show what the user can answer with

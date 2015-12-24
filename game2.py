@@ -40,13 +40,17 @@ Beta 0.6.2 - Fixed error that happened when you pressed something other than "m"
 Beta 0.6.3 - Moved dialogue and maps to world.py
 Beta 0.6.4 - Added accuracy variable to weapons
 Beta 0.6.5 - Included music (2 soundtracks)
+Beta 0.6.6 - Added Inverted control option
+Beta 0.6.7 - Added more music and sound effects
+Beta 0.6.8 - Fixed pyinstaller music problem
+Beta 0.6.9 - Added Fletcher
+Beta 0.7.1 - Village is new "store"; can be visited after every level
 """
-import player, sys
+import player, sys, random
 from enemies import *
 from world import *
 from items import *
 from interactives import *
-from pygame import mixer # Load the required library
 
 me=player.Player(0,0)
 
@@ -65,27 +69,72 @@ Keylist:
 	h = help
 	p = player editor (change weapon, name...)
 	xy = displays coordinates
-	store = access the store
 	wallet = display your wallet
 	map = display map
 	hp = health
 	quit = quit
 """
-
-
+yp, ym = 1, -1 #for inverted controls
+oldx, oldy = 0,0
 win_statement = """
 #*******************#
 #******YOU WIN******#
 #*******************#
 """
+musc = False
 try:
+	print('Loading music...')
+	from pygame import mixer # Load the required library
 	mixer.init()
-	mixer.music.load('resources/strack1.ogg')
-	mixer.music.play()
-	music = True
+	m_chan = mixer.Channel(0)
+	s_chan = mixer.Channel(1)
+	if sys.platform.startswith('darwin'):
+		seffect1 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/seffect1.ogg')
+		seffect2 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/seffect2.ogg')
+		strack1 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/A Glimmer in the North.ogg')
+		strack2 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/strack2.ogg')
+		strack3 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Down Down to Goblin-town.ogg')
+		strack4 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Far Ahead the Road Has Gone.ogg')
+		strack5 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Hammerhand.ogg')
+		strack6 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Lament for Oakenshield.ogg')
+		strack7 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Oakenshield.ogg')
+		strack8 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Shadows of Angmar.ogg')
+		strack9 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/The Creeping Gloom.ogg')
+		strack10 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/The Ice Bay.ogg')
+		strack11 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/The Road to War.ogg')
+		strack12 = mixer.Sound('/Users/calvin/Documents/zealous-fibula-master/zealous-fibula/resources/Where Will Wants Not.ogg')
+	else:
+		seffect1 = mixer.Sound('resources/seffect1.ogg')
+		seffect2 = mixer.Sound('resources/seffect2.ogg')
+		strack1 = mixer.Sound('resources/A Glimmer in the North.ogg')
+		strack2 = mixer.Sound('resources/strack2.ogg')
+		strack3 = mixer.Sound('resources/Down Down to Goblin-town.ogg')
+		strack4 = mixer.Sound('resources/Far Ahead the Road Has Gone.ogg')
+		strack5 = mixer.Sound('resources/Hammerhand.ogg')
+		strack6 = mixer.Sound('resources/Lament for Oakenshield.ogg')
+		strack7 = mixer.Sound('resources/Oakenshield.ogg')
+		strack8 = mixer.Sound('resources/Shadows of Angmar.ogg')
+		strack9 = mixer.Sound('resources/The Creeping Gloom.ogg')
+		strack10 = mixer.Sound('resources/The Ice Bay.ogg')
+		strack11 = mixer.Sound('resources/The Road to War.ogg')
+		strack12 = mixer.Sound('resources/Where Will Wants Not.ogg')
+	playlist = [strack1,strack2,strack3,strack4,strack5,strack6,strack7,strack8,strack9,strack10,strack11,strack12]
+	musc = True
 except:
 	print("Music not compatible")
-	music = False
+	musc = False
+	
+def save():
+	f = open('resources/save1.txt','r+')
+	f.write(str(me.x)+'\n')
+	f.write(str(me.y)+'\n')
+	f.write(me.name+'\n')
+	f.write(str(me.hp)+'\n')
+	f.write(me.weapon.name+'\n')
+	for l in range(0,len(me.invent)):
+		f.write(me.invent[l]+'\n')
+	f.write(str(me.wallet)+'\n')
+	f.write(str(me.skill))
 
 def mapg(l):
 	tmp = l
@@ -96,6 +145,8 @@ def mapg(l):
 		yr = 9
 	elif l == grid1:
 		yr = 12
+	elif l == village:
+		yr=6 #Don't Forget to change
 	for y in range(0,yr):
 		for x in range(0,len(tmp[y])):
 			try:
@@ -107,12 +158,14 @@ def mapg(l):
 					print('	x',end='')
 				elif tmp[y][x].name in itemlist:
 					print('	!',end='')
+				elif tmp[y][x].name == 'level':
+					print('	'+str(tmp[y][x].num),end='')
 				else:
 					print('	#',end='')
 			except:
 				print('	*', end='')
 		print('')
-	print('\nY = You\n+ = Live Monster\nx = Dead Monster\n! = Item\n# = Blank Space\n* = You cannot go here')
+	print('\nY = You\n+ = Live Monster\nx = Dead Monster\n! = Item\n# = Blank Space\nAny number = Level Gateway\n* = You cannot go here')
 	tmp[me.y][me.x] = old
 	
 def atthandle(l,x,y,playhp):
@@ -123,62 +176,35 @@ def switch(l,p1y,p1x,p2y,p2x):
 	old = l[p2y][p2x]
 	l[p2y][p2x] = l[p1y][p1x]
 	l[p1y][p1x] = old
-
-def store():
+"""
+def store(call):
+	global callfrom
 	dash = "-"*50
-	print('Welcome to the store. You can by weapons and other items here in exchange for gold.')
-	tmp = [Rock(-1,-1),Dagger(-1,-1),Sword(-1,-1)]
-	print(dash)
-	###
-	for i in range(0, len(tmp)):
-		print(tmp[i].name+'\n'+tmp[i].description+'\n'+str(tmp[i].value)+' Gold\nDamage: '+str(tmp[i].damage)+'\nDex (how many times it can be swung each battle): '+str(tmp[i].dex))
-		print(dash)
-	###
-	pick = input('Type the name of the item you would like to purchase: ')
-	if pick == tmp[0].name:
-		if me.wallet >= tmp[0].value:
-			me.invent.append(Rock(me.y,me.x))
-			me.wallet -= tmp[0].value
-			print('Item added to inventory')
-		else:
-			print('You do not have enough Gold')
-	elif pick == tmp[2].name:
-		if me.wallet >= tmp[2].value:
-			me.invent.append(Sword(me.y,me.x))
-			me.wallet -= tmp[2].value
-			print('Item added to inventory')
-		else:
-			print('You do not have enough Gold')
-	elif pick == tmp[1].name:
-		if me.wallet >= tmp[1].value:
-			me.invent.append(Dagger(me.y,me.x))
-			me.wallet -= tmp[1].value
-			print('Item added to inventory')
-		else:
-			print('You do not have enough Gold')
-	else:
-		print('That is not a valid item')
-	
-def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
+	print(dash+'\nIn the marketplace')
+	me.x,me.y = 0,0
+	callfrom = call
+	keyHandle(village,-1,-1,-1,'store')
+"""
+def keyHandle(grid, pasx, pasy,next_lev,call): #pasy and pasx = spot to win
 	while True:
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
-			me.y+=1
+			me.y+=yp
 			try:
 				print('You walk forward and see '+grid[me.y][me.x].pview, end='')			
 			except:
-				me.y-=1
+				me.y+=ym
 				print("Bonk! You can't go that way.")
 		elif i == 's' or i == 'S':
-			me.y-=1
+			me.y+=ym
 			try:
 				if me.y>=0:
 					print('You take a few steps backward and turn around. You see '+grid[me.y][me.x].pview, end='')				
 				else:
-					me.y+=1
+					me.y+=yp
 					print("Bonk! You can't go that way!")
 			except:
-				me.y+=1
+				me.y+=yp
 				print("Bonk! You can't go that way.")
 		elif i == 'd' or i == 'D':
 			me.x+=1
@@ -229,8 +255,6 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 			print('You: \n\nName: '+me.name+'\nHP: '+str(me.hp)+'\nWeapon: '+me.weapon.name)
 		elif i == 'xy':
 			print('\nX: '+str(me.x)+'\nY: '+str(me.y))
-		elif i == 'store':
-			store()
 		elif i == 'wallet':
 			print(str(me.wallet)+' Gold')
 		elif i == 'quit':
@@ -243,8 +267,15 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 		if me.hp<=0:
 			break
 		
-		if grid[me.y][me.x].name in enemylist:#!= 'bspace':		
-			me.hp = atthandle(grid,me.x,me.y,me)		
+		if grid[me.y][me.x].name in enemylist:#!= 'bspace':
+			if musc == True:
+				m_chan.pause()
+				s_chan.play(seffect2)
+				me.hp = atthandle(grid,me.x,me.y,me)
+				s_chan.stop()
+				m_chan.unpause()
+			else:
+				me.hp = atthandle(grid,me.x,me.y,me)
 		elif grid[me.y][me.x].name in itemlist:
 			inp = input(' Pick up? (Y/n) ')
 			if inp == 'Y' or inp == 'y':
@@ -254,29 +285,74 @@ def keyHandle(grid, pasx, pasy): #pasy and pasx = spot to win
 					me.wallet += grid[me.y][me.x].amt
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
-		if grid[me.y][me.x].name in interlist:
+		elif grid[me.y][me.x].name in interlist:
 			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
+		elif grid[me.y][me.x].name == 'level':
+			print("-"*80)
+			if grid[me.y][me.x].num == 1 and grid[me.y][me.x].locked == False:
+				Adventure1(0,0,True)
+			elif grid[me.y][me.x].num == 2 and grid[me.y][me.x].locked == False:
+				Adventure2(0,0,True)
+				#add more for more levels
 		#music
-		if mixer.music.get_busy() == False and musc == True:
-			mixer.music.load('resources/strack2.ogg')
-			mixer.music.play()
+		if m_chan.get_busy() == False and musc == True:
+			randnum = random.randint(0,11)
+			m_chan.play(playlist[randnum])
 			
 		if me.x == pasx and me.y == pasy:
 			print("-"*80)
 			me.hp = 100
 			me.x = 0
 			me.y = 0
-			Adventure2()
-			
-def Adventure1():
+			if next_lev == 2:
+				village[5][1].locked = False
+			elif next_lev == 3:
+				village[5][2].locked = False#add more for more levels
+			print("LEVEL BEAT! NEXT LEVEL UNLOCKED!")
+			print("")
+			print("-"*80)
+			i = input('Continue story? (Y/n) ')
+			if i == 'Y' or i == 'y':
+				if next_lev == 2:
+					Adventure2(0,0,True)
+				elif next_lev == 3:
+					Adventure2(0,0,True)
+				elif next_lev == 4:
+					Adventure2(0,0,True)
+				elif next_lev == 5:
+					Adventure2(0,0,True)
+				elif next_lev == 6:
+					Adventure2(0,0,True)
+				elif next_lev == 7:
+					Adventure2(0,0,True)
+			else:
+				print('In the Village')
+				Village()
+def Adventure1(ox,oy,mess):
 	#print('In the Caverns has been started.\n')
-	print(before_grid1)
-	keyHandle(grid1,0,2)
-def Adventure2():
+	me.x, me.y = oldx, oldy
+	if mess == True:
+		print(before_grid1)
+	keyHandle(grid1,4,11,2,'adventure1')
+def Adventure2(ox,oy,mess):
+	me.x, me.y = oldx, oldy
 	#print('A realllly hard maze has been started.\n')
-	print(before_grid2)
-	keyHandle(grid2,2,6)
+	if mess == True:
+		print(before_grid2)
+	keyHandle(grid2,2,7,3,'adventure2')
+def Village():
+	me.x, me.y = 1, 0
+	keyHandle(village,-1,-1,-1,'village')
 def startScreen():
+	randnum = random.randint(0,11)
+	m_chan.play(playlist[randnum])
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n\nPress "h" for help\n')
-	Adventure1()
+	Adventure1(0,0,True)
+	
+inp = input('Inverted controls? (Y,n) ')
+if inp == 'Y' or inp == 'y':
+	yp, ym = 1, -1
+else:
+	yp, ym = -1, 1
+
 startScreen()

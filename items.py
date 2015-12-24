@@ -1,5 +1,5 @@
 itemlist = ['Rock', 'Dagger', 'Sword', 'Gold','Broadsword','Rapier']
-weaponlist = ['Rock', 'Dagger', 'Sword','Broadsword','Rapier']
+weaponlist = ['Rock', 'Dagger', 'Sword','Broadsword','Rapier', 'Bow and Arrow']
 
 class Item():
 	"""The base class for all items"""
