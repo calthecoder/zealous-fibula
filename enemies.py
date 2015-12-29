@@ -1,7 +1,7 @@
 import random, sys
 from time import sleep
 
-enemylist = ['Goblin', 'Ogre', 'Giant Spider', 'Dragon']
+enemylist = ['Goblin', 'Ogre', 'Giant Spider', 'Dragon', 'Orc']
 
 
 class Enemy:
@@ -54,7 +54,7 @@ class Enemy:
         self.name = 'bspace'
         self.hp = -1 #diff than bspace
         self.description = 'An empty cave with nothing but a dead beast in it'
-                
+#don't forget to change enemylist when add new           
 class Goblin(Enemy):
     def __init__(self, y,x):
         super().__init__(name='Goblin',

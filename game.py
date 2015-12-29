@@ -151,6 +151,8 @@ def mapg(l):
 		yr = 12
 	elif l == village:
 		yr=6 #Don't Forget to change
+	elif l == grid3:
+		yr=6 #Don't Forget to change
 	for y in range(0,yr):
 		for x in range(0,len(tmp[y])):
 			try:
@@ -290,7 +292,7 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win
 				grid[me.y][me.x] = bspace5(me.x,me.y)
 				print('Item added to inventory')
 		elif grid[me.y][me.x].name in interlist:
-			me.wallet = grid[me.y][me.x].act(me.invent,me.wallet)
+			me.wallet = grid[me.y][me.x].act(me)
 		elif grid[me.y][me.x].name == 'level':
 			print("")
 			print("-"*80)
@@ -362,10 +364,10 @@ def startScreen():
 	randnum = random.randint(0,11)
 	m_chan.play(playlist[randnum])
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n	Music: Turbine, Inc\n\nPress "h" for help\n')
-	village[5][2].locked = False
-	me.wallet = 300
-	#Adventure1(0,0,True)
-	Village()
+	#village[5][2].locked = False
+	#me.wallet = 80
+	Adventure1(0,0,True)
+	#Village()
 	
 inp = input('Inverted controls? (Y,n) ')
 if inp == 'Y' or inp == 'y':
