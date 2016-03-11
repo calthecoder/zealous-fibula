@@ -47,6 +47,7 @@ Beta 0.6.9 - Added Fletcher
 Beta 0.7.1 - Village is new "store"; can be visited after every level
 Beta 0.7.2 - Added level 3
 Beta 0.7.3 - Fixed interactive problem
+Beta 0.7.4 - Added a new level
 """
 import player, sys, random
 from enemies import *
@@ -54,7 +55,7 @@ from world import *
 from items import *
 from interactives import *
 ######################################################
-#when more levels are added, edit lines 292, 314, 319#
+#when more levels are added, edit lines 292, 314, 319# search #add more for more levels
 ######################################################
 me=player.Player(0,0)
 
@@ -152,7 +153,10 @@ def mapg(l):
 	elif l == village:
 		yr=6 #Don't Forget to change
 	elif l == grid3:
-		yr=6 #Don't Forget to change
+		yr=5 #Don't Forget to change 
+	elif l == grid4:
+		yr=7 #yr is the index range
+	#add for more levels
 	for y in range(0,yr):
 		for x in range(0,len(tmp[y])):
 			try:
@@ -191,8 +195,10 @@ def store(call):
 	callfrom = call
 	keyHandle(village,-1,-1,-1,'store')
 """
-def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win
+def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win #'call' does not do anything right now
 	while True:
+		if me.hp<=0:
+			break
 		i = input('\nAction: ')
 		if i == 'w' or i == 'W':
 			me.y+=yp
@@ -248,12 +254,15 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win
 				if ct == 0:
 					print('Sorry, you have no weapons in your inventory to choose from.')
 				else:
-					i = input('Type weapon number: ')
-					old_weap = me.weapon
-					me.weapon = me.invent[int(i)]
-					del me.invent[int(i)]
-					me.invent.append(old_weap)
-					print('Weapon Changed!')
+					try:
+						i = input('Type weapon number: ')
+						old_weap = me.weapon
+						me.weapon = me.invent[int(i)]
+						del me.invent[int(i)]
+						me.invent.append(old_weap)
+						print('Weapon Changed!')
+					except:
+						print("That's not a number.")
 			elif i == 'n':
 				i = input('Type your name: ')
 				me.name = i
@@ -270,8 +279,6 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win
 		else:
 			print('Huh?')
 		############
-		if me.hp<=0:
-			break
 		
 		if grid[me.y][me.x].name in enemylist:#!= 'bspace':
 			if musc == True:
@@ -302,6 +309,8 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win
 				Adventure2(0,0,True)
 			elif grid[me.y][me.x].num == 3 and grid[me.y][me.x].locked == False:
 				Adventure3(0,0,True)
+			elif grid[me.y][me.x].num == 4 and grid[me.y][me.x].locked == False:
+				Adventure4(0,0,True)
 			else:
 				print("That level is locked")
 				#add more for more levels
@@ -319,7 +328,9 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win
 			if next_lev == 2:
 				village[5][1].locked = False
 			elif next_lev == 3:
-				village[5][2].locked = False#add more for more levels
+				village[5][2].locked = False
+			elif next_lev == 4:
+				village[5][3].locked = False#add more for more levels
 			print("LEVEL BEAT! NEXT LEVEL UNLOCKED!")
 			print("-"*80)
 			i = input('Continue story? (Y/n) ')
@@ -329,7 +340,7 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win
 				elif next_lev == 3:
 					Adventure3(0,0,True)
 				elif next_lev == 4:
-					Adventure2(0,0,True)
+					Adventure4(0,0,True)
 				elif next_lev == 5:
 					Adventure2(0,0,True)
 				elif next_lev == 6:
@@ -357,6 +368,12 @@ def Adventure3(ox,oy,mess):
 	if mess == True:
 		print(before_grid3)
 	keyHandle(grid3,5,2,4,'adventure3')
+def Adventure4(ox,oy,mess):
+	me.x, me.y = oldx, oldy
+	#print('A realllly hard maze has been started.\n')
+	if mess == True:
+		print(before_grid4)
+	keyHandle(grid4,6,2,4,'adventure4')
 def Village():
 	me.x, me.y = 1, 0
 	keyHandle(village,-1,-1,-1,'village')
@@ -368,11 +385,12 @@ def startScreen():
 	#me.wallet = 80
 	Adventure1(0,0,True)
 	#Village()
-	
+#add more for more levels
 inp = input('Inverted controls? (Y,n) ')
 if inp == 'Y' or inp == 'y':
 	yp, ym = 1, -1
 else:
 	yp, ym = -1, 1
-
+village[5][3].locked=False
+me.weapon=Broadsword(me.x,me.y)
 startScreen()

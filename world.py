@@ -7,8 +7,8 @@ village = [
 	['',Road(1,1),''],
 	['',Road(2,1),''],
 	['',Road(3,1),''],
-	[Road(4,0),Road(4,1),Road(4,2)],
-	[Level1(5,0),Level2(5,1),Level3(5,2)]
+	[Road(4,0),Road(4,1),Road(4,2),Road(4,3)],
+	[Level1(5,0),Level2(5,1),Level3(5,2),Level4(5,3)]
 ]
 grid1 = [
 	[bspace(0,0),Goblin(0,1),bspace(0,2)],
@@ -44,6 +44,15 @@ grid3 = [
 	['','',Ogre(3,2),bspace(3,3)],
 	['',Gold(30,4,1),GiantSpider(5,2)]
 ]
+grid4 = [
+	[bspace4(0,0),Dragon(0,1),bspace(0,2),'',Gold(78,0,4)],
+	[Orc(1,0),bspace2(1,1),Goblin(1,2),bspace3(1,3),bspace4(1,4)],
+	[bspace(2,0)],
+	[Orc(3,0),bspace4(3,1),'',Ogre(3,3)],
+	['',Goblin(4,1),bspace(4,2),bspace3(4,3)],
+	['','',bspace2(5,2),bspace(5,3)],
+	['',Gold(30,6,1),Orc(6,2)]
+]
 before_grid1 = """
 It is an ordinary day as you take a quaint walk in the Sand Forest.
 The tall pine trees loom over you. It is almost sunset, but you have no torch.
@@ -69,4 +78,10 @@ Your home and the others homes are in flames. Your neighbors lie
 dead on the ground. The assailants left tracks leading into the 
 mines near your town. You follow the tracks in hopes of destroying
 them and their master.
+"""
+before_grid4 = """
+The orcs finally stop moving. They make their camp for the night in a dank 
+cave room. You watch them for a while. They keep staring right at the rock 
+you are hiding behind. It is late. You go to sleep. When you wake up in the
+morning, they are gone. You rush to try and catch them.
 """
