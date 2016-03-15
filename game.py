@@ -48,6 +48,7 @@ Beta 0.7.1 - Village is new "store"; can be visited after every level
 Beta 0.7.2 - Added level 3
 Beta 0.7.3 - Fixed interactive problem
 Beta 0.7.4 - Added a new level
+Beta 0.7.5 - Added saving progress for the player
 """
 import player, sys, random
 from enemies import *

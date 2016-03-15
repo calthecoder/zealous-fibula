@@ -1,4 +1,4 @@
-itemlist = ['Rock', 'Dagger', 'Sword', 'Gold','Broadsword','Rapier']
+itemlist = ['Rock', 'Dagger', 'Sword', 'Gold','Broadsword','Rapier', 'Bow and Arrow'] #edit save-load.py when you change this
 weaponlist = ['Rock', 'Dagger', 'Sword','Broadsword','Rapier', 'Bow and Arrow']
 
 class Item():
