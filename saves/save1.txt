@@ -2,4 +2,7 @@ You
 Dagger
 104
 0
-
+False
+True
+True
+True
