@@ -6,8 +6,8 @@ from enemies import *
 
 Syntax:
 
-save('saves/save1.txt','saves/save1inv.txt',me.y,village)
-me.y.weapon,me.y.name,me.y.wallet,me.y.skill, me.y.invent = load('saves/save1.txt','saves/save1inv.txt',me,village)
+save('saves/save1.txt','saves/save1inv.txt',me,village)
+me.weapon,me.name,me.wallet,me.skill, me.invent = load('saves/save1.txt','saves/save1inv.txt',me,village)
 
 Format of save1:
 
@@ -52,13 +52,13 @@ def save(saveto, invsave, sprite, world_village): #sprite is the player
 	f.write('\n')
 	f.write(str(sprite.skill))
 	f.write('\n')
-	f.write(world_village[5][0].locked) #add to after more levels are made
+	f.write(str(world_village[5][0].locked)) #add to after more levels are made
 	f.write('\n')
-	f.write(world_village[5][1].locked) #add to after more levels are made
+	f.write(str(world_village[5][1].locked)) #add to after more levels are made
 	f.write('\n')
-	f.write(world_village[5][2].locked) #add to after more levels are made
+	f.write(str(world_village[5][2].locked)) #add to after more levels are made
 	f.write('\n')
-	f.write(world_village[5][3].locked) #add to after more levels are made
+	f.write(str(world_village[5][3].locked)) #add to after more levels are made
 	f.write('\n')
 	f.close()
 	finv = open(invsave, 'r+')

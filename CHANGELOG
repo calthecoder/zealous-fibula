@@ -31,6 +31,7 @@ Beta 0.5.3 - Shortened store()
 Beta 0.5.4 - Made mapg() more detailed
 Beta 0.5.5 - Started before_grid2
 Beta 0.5.6 - Started working on interactives.py - a new library for interaction!!
+Beta 0.5.7 - Fixed up interactives.py and added some weapons for use in interactives
 Beta 0.5.8 - Added a map key
 Beta 0.5.9 - Removed HumanInt class
 Beta 0.6.1 - Fixed mapg() error
@@ -38,9 +39,14 @@ Beta 0.6.2 - Fixed error that happened when you pressed something other than "m"
 Beta 0.6.3 - Moved dialogue and maps to world.py
 Beta 0.6.4 - Added accuracy variable to weapons
 Beta 0.6.5 - Included music (2 soundtracks)
-Beta 0.6.6 - Added more music and sound effects
+Beta 0.6.6 - Added Inverted control option
+Beta 0.6.7 - Added more music and sound effects
 Beta 0.6.8 - Fixed pyinstaller music problem
 Beta 0.6.9 - Added Fletcher
 Beta 0.7.1 - Village is new "store"; can be visited after every level
 Beta 0.7.2 - Added level 3
 Beta 0.7.3 - Fixed interactive problem
+Beta 0.7.4 - Added a new level
+Beta 0.7.5 - Added saving progress for the player
+Beta 0.7.6 - Added saving progress for the levels
+Beta 0.7.7 - Included save_load stuff in game.py

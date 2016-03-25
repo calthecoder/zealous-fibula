@@ -50,18 +50,22 @@ Beta 0.7.3 - Fixed interactive problem
 Beta 0.7.4 - Added a new level
 Beta 0.7.5 - Added saving progress for the player
 Beta 0.7.6 - Added saving progress for the levels
+Beta 0.7.7 - Included save_load stuff in game.py
 """
 import player, sys, random
 from enemies import *
 from world import *
 from items import *
 from interactives import *
-from save_load import *
+import save_load as sl
 ######################################################
 #when more levels are added, edit lines 292, 314, 319# search #add more for more levels
 ######################################################
 me=player.Player(0,0)
-
+i = input('Load game? (Y/n) ')
+if i == 'y' or i == 'Y':
+	me.weapon,me.name,me.wallet,me.skill, me.invent = sl.load('saves/save1.txt','saves/save1inv.txt',me,village)
+me.name = "Aragorn"
 helplist="""
 
 Keylist:
@@ -84,6 +88,7 @@ Keylist:
 """
 yp, ym = 1, -1 #for inverted controls
 oldx, oldy = 0,0
+save_flag = False
 win_statement = """
 #*******************#
 #******YOU WIN******#
@@ -276,6 +281,9 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win #'ca
 		elif i == 'wallet':
 			print(str(me.wallet)+' Gold')
 		elif i == 'quit':
+			i = input("Save first? (Y/n) ")
+			if i == 'Y' or i == 'y':
+				sl.save('saves/save1.txt','saves/save1inv.txt',me,village)
 			sys.exit()
 		elif i == 'map':
 			mapg(grid)
@@ -394,6 +402,4 @@ if inp == 'Y' or inp == 'y':
 	yp, ym = 1, -1
 else:
 	yp, ym = -1, 1
-village[5][3].locked=False
-me.weapon=Broadsword(me.x,me.y)
 startScreen()

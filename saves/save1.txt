@@ -1,8 +1,8 @@
-You
-Dagger
-104
+Aragorn
+Broadsword
+71
 0
 False
-True
+False
 True
 True
