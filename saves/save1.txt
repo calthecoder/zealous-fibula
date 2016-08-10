@@ -1,8 +1,9 @@
 Aragorn
-Broadsword
-71
+Dagger
+21
 0
 False
-False
+True
+True
 True
 True

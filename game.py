@@ -51,6 +51,7 @@ Beta 0.7.4 - Added a new level
 Beta 0.7.5 - Added saving progress for the player
 Beta 0.7.6 - Added saving progress for the levels
 Beta 0.7.7 - Included save_load stuff in game.py
+Beta 0.7.8 - Fixed some bugs
 """
 import player, sys, random
 from enemies import *
@@ -326,7 +327,7 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win #'ca
 				print("That level is locked")
 				#add more for more levels
 		#music
-		if m_chan.get_busy() == False and musc == True:
+		if musc == True and m_chan.get_busy() == False:
 			randnum = random.randint(0,11)
 			m_chan.play(playlist[randnum])
 			
@@ -389,8 +390,9 @@ def Village():
 	me.x, me.y = 1, 0
 	keyHandle(village,-1,-1,-1,'village')
 def startScreen():
-	randnum = random.randint(0,11)
-	m_chan.play(playlist[randnum])
+	if musc == True:
+		randnum = random.randint(0,11)
+		m_chan.play(playlist[randnum])
 	print('\nWelcome to Zealous Fibula.\n\nCredits:\n    Program: Starfleet Software\n	Music: Turbine, Inc\n\nPress "h" for help\n')
 	#village[5][2].locked = False
 	#me.wallet = 80
