@@ -62,11 +62,14 @@ import save_load as sl
 ######################################################
 #when more levels are added, edit lines 292, 314, 319# search #add more for more levels
 ######################################################
+print("Copyright © 2016 Starfleet Software")
 me=player.Player(0,0)
-i = input('Load game? (Y/n) ')
-if i == 'y' or i == 'Y':
-	me.weapon,me.name,me.wallet,me.skill, me.invent = sl.load('saves/save1.txt','saves/save1inv.txt',me,village)
-me.name = "Aragorn"
+try:
+	i = input('Load game? (Y/n) ')
+	if i == 'y' or i == 'Y':
+		me.weapon,me.name,me.wallet,me.skill, me.invent = sl.load('saves/save1.txt','saves/save1inv.txt',me,village)
+except:
+	print("Load/Save not available")
 helplist="""
 
 Keylist:
@@ -282,10 +285,14 @@ def keyHandle(grid, pasy, pasx,next_lev,call): #pasy and pasx = spot to win #'ca
 		elif i == 'wallet':
 			print(str(me.wallet)+' Gold')
 		elif i == 'quit':
-			i = input("Save first? (Y/n) ")
-			if i == 'Y' or i == 'y':
-				sl.save('saves/save1.txt','saves/save1inv.txt',me,village)
-			sys.exit()
+			try:
+				i = input("Save first? (Y/n) ")
+				if i == 'Y' or i == 'y':
+					sl.save('saves/save1.txt','saves/save1inv.txt',me,village)
+				sys.exit()
+			except:
+				print("Save/Load not available")
+				sys.exit()
 		elif i == 'map':
 			mapg(grid)
 		else:
